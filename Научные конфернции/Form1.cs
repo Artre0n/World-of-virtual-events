@@ -1,4 +1,5 @@
 using System;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,7 @@ namespace Научные_конфернции
             context = new ApplicationContext();
             context.Database.EnsureCreated();
             LoadConferencesToListBox();
-            
+
         }
         private void LoadConferencesToListBox()
         {
@@ -27,7 +28,9 @@ namespace Научные_конфернции
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
-            
+
         }
+
+        
     }
 }
