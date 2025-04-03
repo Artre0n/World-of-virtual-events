@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic.ApplicationServices;
+using Научные_конфернции;
 namespace Научные_конфернции
 {
     internal static class Program
@@ -13,5 +15,6 @@ namespace Научные_конфернции
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
+
     }
 }

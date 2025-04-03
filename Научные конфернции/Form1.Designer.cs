@@ -55,6 +55,7 @@ namespace Научные_конфернции
             AddButton.TabIndex = 0;
             AddButton.Text = "Добавить";
             AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
             // DeleteButton
             // 
@@ -72,7 +73,7 @@ namespace Научные_конфернции
             ListHeading.BackColor = Color.CornflowerBlue;
             ListHeading.BorderStyle = BorderStyle.FixedSingle;
             ListHeading.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            ListHeading.Location = new Point(14, 39);
+            ListHeading.Location = new Point(15, 39);
             ListHeading.Margin = new Padding(4, 3, 4, 3);
             ListHeading.Name = "ListHeading";
             ListHeading.Size = new Size(320, 27);
@@ -87,7 +88,7 @@ namespace Научные_конфернции
             listBox.BorderStyle = BorderStyle.FixedSingle;
             listBox.FormattingEnabled = true;
             listBox.ItemHeight = 15;
-            listBox.Location = new Point(14, 67);
+            listBox.Location = new Point(15, 67);
             listBox.Margin = new Padding(4, 3, 4, 3);
             listBox.Name = "listBox";
             listBox.Size = new Size(320, 602);
@@ -168,7 +169,7 @@ namespace Научные_конфернции
             IconSearch.BackgroundImageLayout = ImageLayout.None;
             IconSearch.BorderStyle = BorderStyle.FixedSingle;
             IconSearch.Image = Properties.Resources.icon_magnifier;
-            IconSearch.Location = new Point(14, 67);
+            IconSearch.Location = new Point(15, 67);
             IconSearch.Margin = new Padding(4, 3, 4, 3);
             IconSearch.Name = "IconSearch";
             IconSearch.Size = new Size(24, 23);
@@ -215,6 +216,5 @@ namespace Научные_конфернции
         private System.Windows.Forms.Button OpenButton;
         private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.PictureBox IconSearch;
-
     }
 }
