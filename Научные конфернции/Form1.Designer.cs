@@ -31,155 +31,149 @@ namespace Научные_конфернции
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            button1 = new Button();
-            button2 = new Button();
-            textBox1 = new TextBox();
-            listBox1 = new ListBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            textBox4 = new TextBox();
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            AddButton = new Button();
+            DeleteButton = new Button();
+            ListHeading = new TextBox();
+            listBox = new ListBox();
+            StripBackground = new TextBox();
+            MainHeading = new TextBox();
+            EditButton = new Button();
+            SaveButton = new Button();
+            OpenButton = new Button();
+            SearchBar = new TextBox();
+            IconSearch = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)IconSearch).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // AddButton
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button1.Location = new Point(14, 680);
-            button1.Margin = new Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(134, 38);
-            button1.TabIndex = 0;
-            button1.Text = "Добавить";
-            button1.UseVisualStyleBackColor = true;
+            AddButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            AddButton.Location = new Point(14, 680);
+            AddButton.Margin = new Padding(4, 3, 4, 3);
+            AddButton.Name = "AddButton";
+            AddButton.Size = new Size(134, 38);
+            AddButton.TabIndex = 0;
+            AddButton.Text = "Добавить";
+            AddButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // DeleteButton
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button2.Location = new Point(201, 680);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(134, 38);
-            button2.TabIndex = 1;
-            button2.Text = "Удалить";
-            button2.UseVisualStyleBackColor = true;
+            DeleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            DeleteButton.Location = new Point(201, 680);
+            DeleteButton.Margin = new Padding(4, 3, 4, 3);
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Size = new Size(134, 38);
+            DeleteButton.TabIndex = 1;
+            DeleteButton.Text = "Удалить";
+            DeleteButton.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // ListHeading
             // 
-            textBox1.BackColor = Color.CornflowerBlue;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox1.Location = new Point(14, 39);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(320, 27);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "Список конференций";
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            textBox1.TextChanged += textBox1_TextChanged;
+            ListHeading.BackColor = Color.CornflowerBlue;
+            ListHeading.BorderStyle = BorderStyle.FixedSingle;
+            ListHeading.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ListHeading.Location = new Point(14, 39);
+            ListHeading.Margin = new Padding(4, 3, 4, 3);
+            ListHeading.Name = "ListHeading";
+            ListHeading.Size = new Size(320, 27);
+            ListHeading.TabIndex = 2;
+            ListHeading.Text = "Список конференций";
+            ListHeading.TextAlign = HorizontalAlignment.Center;
             // 
-            // listBox1
+            // listBox
             // 
-            listBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            listBox1.BackColor = SystemColors.Menu;
-            listBox1.BorderStyle = BorderStyle.FixedSingle;
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(14, 67);
-            listBox1.Margin = new Padding(4, 3, 4, 3);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(320, 602);
-            listBox1.TabIndex = 3;
+            listBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            listBox.BackColor = SystemColors.Menu;
+            listBox.BorderStyle = BorderStyle.FixedSingle;
+            listBox.FormattingEnabled = true;
+            listBox.ItemHeight = 15;
+            listBox.Location = new Point(14, 67);
+            listBox.Margin = new Padding(4, 3, 4, 3);
+            listBox.Name = "listBox";
+            listBox.Size = new Size(320, 602);
+            listBox.TabIndex = 3;
             // 
-            // textBox2
+            // StripBackground
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.BackColor = Color.RoyalBlue;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Cursor = Cursors.No;
-            textBox2.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox2.Location = new Point(0, 0);
-            textBox2.Margin = new Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(1306, 28);
-            textBox2.TabIndex = 4;
+            StripBackground.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            StripBackground.BackColor = Color.RoyalBlue;
+            StripBackground.BorderStyle = BorderStyle.None;
+            StripBackground.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            StripBackground.Location = new Point(0, 0);
+            StripBackground.Margin = new Padding(4, 3, 4, 3);
+            StripBackground.Name = "StripBackground";
+            StripBackground.Size = new Size(1306, 28);
+            StripBackground.TabIndex = 4;
             // 
-            // textBox3
+            // MainHeading
             // 
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.Cursor = Cursors.No;
-            textBox3.Enabled = false;
-            textBox3.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox3.Location = new Point(438, 39);
-            textBox3.Margin = new Padding(4, 3, 4, 3);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(844, 33);
-            textBox3.TabIndex = 5;
-            textBox3.TextAlign = HorizontalAlignment.Center;
-            textBox3.TextChanged += textBox3_TextChanged;
+            MainHeading.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            MainHeading.Cursor = Cursors.No;
+            MainHeading.Enabled = false;
+            MainHeading.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            MainHeading.Location = new Point(438, 39);
+            MainHeading.Margin = new Padding(4, 3, 4, 3);
+            MainHeading.Name = "MainHeading";
+            MainHeading.ReadOnly = true;
+            MainHeading.Size = new Size(844, 33);
+            MainHeading.TabIndex = 5;
+            MainHeading.TextAlign = HorizontalAlignment.Center;
             // 
-            // button3
+            // EditButton
             // 
-            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button3.Location = new Point(1065, 680);
-            button3.Margin = new Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(217, 36);
-            button3.TabIndex = 6;
-            button3.Text = "Редактировать";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            EditButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            EditButton.Location = new Point(1065, 680);
+            EditButton.Margin = new Padding(4, 3, 4, 3);
+            EditButton.Name = "EditButton";
+            EditButton.Size = new Size(217, 36);
+            EditButton.TabIndex = 6;
+            EditButton.Text = "Редактировать";
+            EditButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // SaveButton
             // 
-            button4.Anchor = AnchorStyles.Bottom;
-            button4.Location = new Point(750, 680);
-            button4.Margin = new Padding(4, 3, 4, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(217, 36);
-            button4.TabIndex = 7;
-            button4.Text = "Сохранить";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            SaveButton.Anchor = AnchorStyles.Bottom;
+            SaveButton.Location = new Point(750, 680);
+            SaveButton.Margin = new Padding(4, 3, 4, 3);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(217, 36);
+            SaveButton.TabIndex = 7;
+            SaveButton.Text = "Сохранить";
+            SaveButton.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // OpenButton
             // 
-            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button5.Location = new Point(438, 680);
-            button5.Margin = new Padding(4, 3, 4, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(217, 36);
-            button5.TabIndex = 8;
-            button5.Text = "Просмотр";
-            button5.UseVisualStyleBackColor = true;
+            OpenButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            OpenButton.Location = new Point(438, 680);
+            OpenButton.Margin = new Padding(4, 3, 4, 3);
+            OpenButton.Name = "OpenButton";
+            OpenButton.Size = new Size(217, 36);
+            OpenButton.TabIndex = 8;
+            OpenButton.Text = "Просмотр";
+            OpenButton.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // SearchBar
             // 
-            textBox4.BackColor = SystemColors.Window;
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Location = new Point(35, 67);
-            textBox4.Margin = new Padding(4, 3, 4, 3);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(300, 23);
-            textBox4.TabIndex = 9;
-            textBox4.TextChanged += textBox4_TextChanged;
+            SearchBar.BackColor = SystemColors.Window;
+            SearchBar.BorderStyle = BorderStyle.FixedSingle;
+            SearchBar.Location = new Point(35, 67);
+            SearchBar.Margin = new Padding(4, 3, 4, 3);
+            SearchBar.Name = "SearchBar";
+            SearchBar.Size = new Size(300, 23);
+            SearchBar.TabIndex = 9;
             // 
-            // pictureBox1
+            // IconSearch
             // 
-            pictureBox1.BackColor = SystemColors.ControlLightLight;
-            pictureBox1.BackgroundImageLayout = ImageLayout.None;
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Image = Properties.Resources.icon_magnifier;
-            pictureBox1.Location = new Point(14, 67);
-            pictureBox1.Margin = new Padding(4, 3, 4, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(24, 23);
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
+            IconSearch.BackColor = SystemColors.ControlLightLight;
+            IconSearch.BackgroundImageLayout = ImageLayout.None;
+            IconSearch.BorderStyle = BorderStyle.FixedSingle;
+            IconSearch.Image = Properties.Resources.icon_magnifier;
+            IconSearch.Location = new Point(14, 67);
+            IconSearch.Margin = new Padding(4, 3, 4, 3);
+            IconSearch.Name = "IconSearch";
+            IconSearch.Size = new Size(24, 23);
+            IconSearch.TabIndex = 10;
+            IconSearch.TabStop = false;
             // 
             // Form1
             // 
@@ -187,41 +181,40 @@ namespace Научные_конфернции
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1296, 742);
-            Controls.Add(pictureBox1);
-            Controls.Add(textBox4);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(textBox3);
-            Controls.Add(listBox1);
-            Controls.Add(textBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
+            Controls.Add(IconSearch);
+            Controls.Add(SearchBar);
+            Controls.Add(OpenButton);
+            Controls.Add(SaveButton);
+            Controls.Add(EditButton);
+            Controls.Add(MainHeading);
+            Controls.Add(listBox);
+            Controls.Add(ListHeading);
+            Controls.Add(DeleteButton);
+            Controls.Add(AddButton);
+            Controls.Add(StripBackground);
             ForeColor = SystemColors.ControlText;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "Form1";
             Text = "ScienceManager";
-            Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)IconSearch).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.TextBox ListHeading;
+        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.TextBox StripBackground;
+        private System.Windows.Forms.TextBox MainHeading;
+        private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button OpenButton;
+        private System.Windows.Forms.TextBox SearchBar;
+        private System.Windows.Forms.PictureBox IconSearch;
 
     }
 }
