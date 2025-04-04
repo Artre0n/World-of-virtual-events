@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,14 @@ namespace Научные_конфернции
     public class Conference 
     {
         public int ConferenceId { get; set; }
+        [Required]
         public string? Title { get; set; }
         public string? Description { get; set; }
-        public DateTime Date { get; set; }
+        [Required]
+        public DateTimeOffset Date { get; set; }
+        [Required]
         public TimeSpan Time { get; set; }
+        [Required]
         public string? Category { get; set; }
         public string? Participants { get; set; }
     }

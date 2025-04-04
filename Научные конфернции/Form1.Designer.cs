@@ -43,15 +43,19 @@ namespace Научные_конфернции
             SearchBar = new TextBox();
             IconSearch = new PictureBox();
             groupBox1 = new GroupBox();
+            CancelButton = new Button();
+            textBoxParticipants = new TextBox();
+            textBoxCategory = new TextBox();
+            textBoxTime = new TextBox();
+            textBoxDate = new TextBox();
+            textBoxDescription = new TextBox();
+            textBoxTitle = new TextBox();
             label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)IconSearch).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -145,13 +149,14 @@ namespace Научные_конфернции
             // SaveButton
             // 
             SaveButton.Anchor = AnchorStyles.Bottom;
-            SaveButton.Location = new Point(750, 680);
+            SaveButton.Location = new Point(7, 549);
             SaveButton.Margin = new Padding(4, 3, 4, 3);
             SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(217, 36);
+            SaveButton.Size = new Size(134, 36);
             SaveButton.TabIndex = 7;
             SaveButton.Text = "Сохранить";
             SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
             // 
             // OpenButton
             // 
@@ -189,101 +194,147 @@ namespace Научные_конфернции
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(CancelButton);
+            groupBox1.Controls.Add(textBoxParticipants);
+            groupBox1.Controls.Add(textBoxCategory);
+            groupBox1.Controls.Add(textBoxTime);
+            groupBox1.Controls.Add(textBoxDate);
+            groupBox1.Controls.Add(SaveButton);
+            groupBox1.Controls.Add(textBoxDescription);
+            groupBox1.Controls.Add(textBoxTitle);
             groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
+            groupBox1.Font = new Font("Microsoft Sans Serif", 8.25F);
             groupBox1.Location = new Point(438, 78);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(844, 591);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "Редактор";
+            groupBox1.Visible = false;
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // CancelButton
+            // 
+            CancelButton.Anchor = AnchorStyles.Bottom;
+            CancelButton.Location = new Point(703, 549);
+            CancelButton.Margin = new Padding(4, 3, 4, 3);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(134, 36);
+            CancelButton.TabIndex = 16;
+            CancelButton.Text = "Отмена";
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
+            // 
+            // textBoxParticipants
+            // 
+            textBoxParticipants.Location = new Point(140, 415);
+            textBoxParticipants.Multiline = true;
+            textBoxParticipants.Name = "textBoxParticipants";
+            textBoxParticipants.Size = new Size(481, 127);
+            textBoxParticipants.TabIndex = 15;
+            // 
+            // textBoxCategory
+            // 
+            textBoxCategory.Location = new Point(140, 366);
+            textBoxCategory.Name = "textBoxCategory";
+            textBoxCategory.Size = new Size(481, 20);
+            textBoxCategory.TabIndex = 14;
+            // 
+            // textBoxTime
+            // 
+            textBoxTime.Location = new Point(140, 318);
+            textBoxTime.Name = "textBoxTime";
+            textBoxTime.Size = new Size(481, 20);
+            textBoxTime.TabIndex = 13;
+            // 
+            // textBoxDate
+            // 
+            textBoxDate.Location = new Point(140, 269);
+            textBoxDate.Name = "textBoxDate";
+            textBoxDate.Size = new Size(481, 20);
+            textBoxDate.TabIndex = 12;
+            textBoxDate.TextChanged += textBox3_TextChanged;
+            // 
+            // textBoxDescription
+            // 
+            textBoxDescription.Location = new Point(140, 115);
+            textBoxDescription.Multiline = true;
+            textBoxDescription.Name = "textBoxDescription";
+            textBoxDescription.Size = new Size(481, 127);
+            textBoxDescription.TabIndex = 9;
+            // 
+            // textBoxTitle
+            // 
+            textBoxTitle.Location = new Point(140, 44);
+            textBoxTitle.Name = "textBoxTitle";
+            textBoxTitle.Size = new Size(481, 20);
+            textBoxTitle.TabIndex = 8;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(29, 287);
+            label8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label8.Location = new Point(29, 405);
             label8.Name = "label8";
-            label8.Size = new Size(38, 15);
+            label8.Size = new Size(113, 30);
             label8.TabIndex = 7;
-            label8.Text = "label8";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(29, 248);
-            label7.Name = "label7";
-            label7.Size = new Size(38, 15);
-            label7.TabIndex = 6;
-            label7.Text = "label7";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(29, 213);
-            label6.Name = "label6";
-            label6.Size = new Size(38, 15);
-            label6.TabIndex = 5;
-            label6.Text = "label6";
+            label8.Text = "Участники";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(29, 177);
+            label5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label5.Location = new Point(25, 356);
             label5.Name = "label5";
-            label5.Size = new Size(38, 15);
+            label5.Size = new Size(111, 30);
             label5.TabIndex = 4;
-            label5.Text = "label5";
+            label5.Text = "Категория";
+            label5.Click += label5_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(29, 143);
+            label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label4.Location = new Point(25, 308);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
+            label4.Size = new Size(74, 30);
             label4.TabIndex = 3;
-            label4.Text = "label4";
+            label4.Text = "Время";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 110);
+            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label3.Location = new Point(29, 259);
             label3.Name = "label3";
-            label3.Size = new Size(38, 15);
+            label3.Size = new Size(59, 30);
             label3.TabIndex = 2;
-            label3.Text = "label3";
+            label3.Text = "Дата";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 74);
+            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label2.Location = new Point(25, 115);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(109, 30);
             label2.TabIndex = 1;
-            label2.Text = "label2";
+            label2.Text = "Описание";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(29, 37);
+            label1.Location = new Point(25, 34);
             label1.Name = "label1";
             label1.Size = new Size(105, 30);
             label1.TabIndex = 0;
             label1.Text = "Название";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(140, 44);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(486, 23);
-            textBox1.TabIndex = 8;
             // 
             // Form1
             // 
@@ -295,7 +346,6 @@ namespace Научные_конфернции
             Controls.Add(IconSearch);
             Controls.Add(SearchBar);
             Controls.Add(OpenButton);
-            Controls.Add(SaveButton);
             Controls.Add(EditButton);
             Controls.Add(MainHeading);
             Controls.Add(listBox);
@@ -330,13 +380,17 @@ namespace Научные_конфернции
         private System.Windows.Forms.PictureBox IconSearch;
         private GroupBox groupBox1;
         private Label label8;
-        private Label label7;
-        private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBoxTitle;
+        private TextBox textBoxDescription;
+        private TextBox textBoxDate;
+        private TextBox textBoxTime;
+        private TextBox textBoxParticipants;
+        private TextBox textBoxCategory;
+        private Button CancelButton;
     }
 }
