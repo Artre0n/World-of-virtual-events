@@ -20,6 +20,7 @@ namespace Научные_конфернции
         }
         private void LoadConferencesToListBox()
         {
+            context.ChangeTracker.DetectChanges();
             listBox.Items.Clear();
             var conferences = context.Conferences.ToList();
             foreach (var one in conferences)
