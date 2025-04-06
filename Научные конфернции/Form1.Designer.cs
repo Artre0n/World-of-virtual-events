@@ -64,10 +64,10 @@
             // AddButton
             // 
             AddButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            AddButton.Location = new Point(16, 906);
-            AddButton.Margin = new Padding(5, 4, 5, 4);
+            AddButton.Location = new Point(13, 673);
+            AddButton.Margin = new Padding(4, 3, 4, 3);
             AddButton.Name = "AddButton";
-            AddButton.Size = new Size(153, 51);
+            AddButton.Size = new Size(134, 38);
             AddButton.TabIndex = 0;
             AddButton.Text = "Добавить";
             AddButton.UseVisualStyleBackColor = true;
@@ -76,10 +76,10 @@
             // DeleteButton
             // 
             DeleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            DeleteButton.Location = new Point(201, 680);
-            DeleteButton.Margin = new Padding(4, 3, 4, 3);
+            DeleteButton.Location = new Point(208, 673);
+            DeleteButton.Margin = new Padding(4, 2, 4, 2);
             DeleteButton.Name = "DeleteButton";
-            DeleteButton.Size = new Size(134, 38);
+            DeleteButton.Size = new Size(123, 38);
             DeleteButton.TabIndex = 1;
             DeleteButton.Text = "Удалить";
             DeleteButton.UseVisualStyleBackColor = true;
@@ -91,10 +91,10 @@
             listBox.BorderStyle = BorderStyle.FixedSingle;
             listBox.FormattingEnabled = true;
             listBox.ItemHeight = 15;
-            listBox.Location = new Point(13, 112);
-            listBox.Margin = new Padding(4, 3, 4, 3);
+            listBox.Location = new Point(11, 84);
+            listBox.Margin = new Padding(4, 2, 4, 2);
             listBox.Name = "listBox";
-            listBox.Size = new Size(320, 557);
+            listBox.Size = new Size(320, 572);
             listBox.TabIndex = 3;
             // 
             // MainHeading
@@ -103,21 +103,21 @@
             MainHeading.Cursor = Cursors.No;
             MainHeading.Enabled = false;
             MainHeading.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            MainHeading.Location = new Point(501, 52);
-            MainHeading.Margin = new Padding(5, 4, 5, 4);
+            MainHeading.Location = new Point(438, 39);
+            MainHeading.Margin = new Padding(4, 3, 4, 3);
             MainHeading.Name = "MainHeading";
             MainHeading.ReadOnly = true;
-            MainHeading.Size = new Size(964, 39);
+            MainHeading.Size = new Size(702, 33);
             MainHeading.TabIndex = 5;
             MainHeading.TextAlign = HorizontalAlignment.Center;
             // 
             // EditButton
             // 
             EditButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            EditButton.Location = new Point(1217, 907);
-            EditButton.Margin = new Padding(5, 4, 5, 4);
+            EditButton.Location = new Point(917, 675);
+            EditButton.Margin = new Padding(4, 3, 4, 3);
             EditButton.Name = "EditButton";
-            EditButton.Size = new Size(248, 48);
+            EditButton.Size = new Size(217, 36);
             EditButton.TabIndex = 6;
             EditButton.Text = "Редактировать";
             EditButton.UseVisualStyleBackColor = true;
@@ -125,10 +125,10 @@
             // SaveButton
             // 
             SaveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            SaveButton.Location = new Point(8, 732);
-            SaveButton.Margin = new Padding(5, 4, 5, 4);
+            SaveButton.Location = new Point(7, 549);
+            SaveButton.Margin = new Padding(4, 3, 4, 3);
             SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(153, 48);
+            SaveButton.Size = new Size(134, 36);
             SaveButton.TabIndex = 7;
             SaveButton.Text = "Сохранить";
             SaveButton.UseVisualStyleBackColor = true;
@@ -137,10 +137,10 @@
             // OpenButton
             // 
             OpenButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            OpenButton.Location = new Point(501, 907);
-            OpenButton.Margin = new Padding(5, 4, 5, 4);
+            OpenButton.Location = new Point(438, 675);
+            OpenButton.Margin = new Padding(4, 3, 4, 3);
             OpenButton.Name = "OpenButton";
-            OpenButton.Size = new Size(248, 48);
+            OpenButton.Size = new Size(217, 36);
             OpenButton.TabIndex = 8;
             OpenButton.Text = "Просмотр";
             OpenButton.UseVisualStyleBackColor = true;
@@ -149,10 +149,10 @@
             // 
             SearchBar.BackColor = SystemColors.Window;
             SearchBar.BorderStyle = BorderStyle.FixedSingle;
-            SearchBar.Location = new Point(35, 78);
-            SearchBar.Margin = new Padding(4, 3, 4, 3);
+            SearchBar.Location = new Point(31, 58);
+            SearchBar.Margin = new Padding(4, 2, 4, 2);
             SearchBar.Name = "SearchBar";
-            SearchBar.Size = new Size(343, 27);
+            SearchBar.Size = new Size(300, 23);
             SearchBar.TabIndex = 9;
             // 
             // IconSearch
@@ -161,10 +161,10 @@
             IconSearch.BackgroundImageLayout = ImageLayout.None;
             IconSearch.BorderStyle = BorderStyle.FixedSingle;
             IconSearch.Image = Properties.Resources.icon_magnifier;
-            IconSearch.Location = new Point(14, 78);
-            IconSearch.Margin = new Padding(4, 3, 4, 3);
+            IconSearch.Location = new Point(11, 58);
+            IconSearch.Margin = new Padding(4, 2, 4, 2);
             IconSearch.Name = "IconSearch";
-            IconSearch.Size = new Size(28, 27);
+            IconSearch.Size = new Size(24, 23);
             IconSearch.TabIndex = 10;
             IconSearch.TabStop = false;
             IconSearch.Click += IconSearch_Click;
@@ -186,11 +186,9 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Microsoft Sans Serif", 8.25F);
-            groupBox1.Location = new Point(501, 104);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Location = new Point(438, 78);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(965, 788);
+            groupBox1.Size = new Size(697, 591);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Visible = false;
@@ -198,7 +196,8 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(140, 269);
+            dateTimePicker1.Location = new Point(150, 266);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(481, 20);
             dateTimePicker1.TabIndex = 13;
@@ -206,10 +205,10 @@
             // CancelButton
             // 
             CancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            CancelButton.Location = new Point(803, 732);
-            CancelButton.Margin = new Padding(5, 4, 5, 4);
+            CancelButton.Location = new Point(562, 555);
+            CancelButton.Margin = new Padding(4, 3, 4, 3);
             CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(153, 48);
+            CancelButton.Size = new Size(134, 36);
             CancelButton.TabIndex = 16;
             CancelButton.Text = "Отмена";
             CancelButton.UseVisualStyleBackColor = true;
@@ -217,53 +216,48 @@
             // 
             // textBoxParticipants
             // 
-            textBoxParticipants.Location = new Point(171, 552);
-            textBoxParticipants.Margin = new Padding(3, 4, 3, 4);
+            textBoxParticipants.Location = new Point(150, 414);
             textBoxParticipants.Multiline = true;
             textBoxParticipants.Name = "textBoxParticipants";
-            textBoxParticipants.Size = new Size(549, 168);
+            textBoxParticipants.Size = new Size(481, 127);
             textBoxParticipants.TabIndex = 15;
             // 
             // textBoxCategory
             // 
-            textBoxCategory.Location = new Point(171, 487);
-            textBoxCategory.Margin = new Padding(3, 4, 3, 4);
+            textBoxCategory.Location = new Point(150, 365);
             textBoxCategory.Name = "textBoxCategory";
-            textBoxCategory.Size = new Size(549, 23);
+            textBoxCategory.Size = new Size(481, 20);
             textBoxCategory.TabIndex = 14;
             // 
             // textBoxTime
             // 
-            textBoxTime.Location = new Point(171, 423);
-            textBoxTime.Margin = new Padding(3, 4, 3, 4);
+            textBoxTime.Location = new Point(150, 317);
             textBoxTime.Name = "textBoxTime";
-            textBoxTime.Size = new Size(549, 23);
+            textBoxTime.Size = new Size(481, 20);
             textBoxTime.TabIndex = 13;
             // 
             // textBoxDescription
             // 
-            textBoxDescription.Location = new Point(176, 153);
-            textBoxDescription.Margin = new Padding(3, 4, 3, 4);
+            textBoxDescription.Location = new Point(150, 115);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
-            textBoxDescription.Size = new Size(549, 168);
+            textBoxDescription.Size = new Size(481, 127);
             textBoxDescription.TabIndex = 9;
             // 
             // textBoxTitle
             // 
-            textBoxTitle.Location = new Point(171, 59);
-            textBoxTitle.Margin = new Padding(3, 4, 3, 4);
+            textBoxTitle.Location = new Point(150, 44);
             textBoxTitle.Name = "textBoxTitle";
-            textBoxTitle.Size = new Size(549, 23);
+            textBoxTitle.Size = new Size(481, 20);
             textBoxTitle.TabIndex = 8;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label8.Location = new Point(33, 540);
+            label8.Location = new Point(29, 405);
             label8.Name = "label8";
-            label8.Size = new Size(145, 37);
+            label8.Size = new Size(113, 30);
             label8.TabIndex = 7;
             label8.Text = "Участники";
             // 
@@ -271,9 +265,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label5.Location = new Point(29, 475);
+            label5.Location = new Point(25, 356);
             label5.Name = "label5";
-            label5.Size = new Size(144, 37);
+            label5.Size = new Size(111, 30);
             label5.TabIndex = 4;
             label5.Text = "Категория";
             label5.Click += label5_Click;
@@ -282,9 +276,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label4.Location = new Point(29, 411);
+            label4.Location = new Point(25, 308);
             label4.Name = "label4";
-            label4.Size = new Size(95, 37);
+            label4.Size = new Size(74, 30);
             label4.TabIndex = 3;
             label4.Text = "Время";
             // 
@@ -292,9 +286,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label3.Location = new Point(33, 345);
+            label3.Location = new Point(29, 259);
             label3.Name = "label3";
-            label3.Size = new Size(75, 37);
+            label3.Size = new Size(59, 30);
             label3.TabIndex = 2;
             label3.Text = "Дата";
             // 
@@ -302,9 +296,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.Location = new Point(29, 153);
+            label2.Location = new Point(25, 115);
             label2.Name = "label2";
-            label2.Size = new Size(141, 37);
+            label2.Size = new Size(109, 30);
             label2.TabIndex = 1;
             label2.Text = "Описание";
             // 
@@ -312,16 +306,16 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(29, 45);
+            label1.Location = new Point(25, 34);
             label1.Name = "label1";
-            label1.Size = new Size(136, 37);
+            label1.Size = new Size(105, 30);
             label1.TabIndex = 0;
             label1.Text = "Название";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(100, 49);
+            label6.Location = new Point(88, 37);
             label6.Name = "label6";
             label6.Size = new Size(0, 15);
             label6.TabIndex = 12;
@@ -330,9 +324,10 @@
             // 
             panel1.BackColor = Color.CornflowerBlue;
             panel1.Controls.Add(label7);
-            panel1.Location = new Point(14, 39);
+            panel1.Location = new Point(12, 29);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(319, 33);
+            panel1.Size = new Size(319, 25);
             panel1.TabIndex = 13;
             panel1.Paint += panel1_Paint;
             // 
@@ -341,7 +336,7 @@
             label7.AutoSize = true;
             label7.BackColor = Color.CornflowerBlue;
             label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label7.Location = new Point(58, 4);
+            label7.Location = new Point(51, 3);
             label7.Name = "label7";
             label7.Size = new Size(199, 25);
             label7.TabIndex = 0;
@@ -352,16 +347,17 @@
             // 
             panel2.BackColor = Color.CornflowerBlue;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1297, 28);
+            panel2.Size = new Size(1140, 21);
             panel2.TabIndex = 14;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1296, 742);
+            ClientSize = new Size(1142, 736);
             Controls.Add(panel1);
             Controls.Add(label6);
             Controls.Add(groupBox1);
@@ -376,7 +372,7 @@
             Controls.Add(panel2);
             ForeColor = SystemColors.ControlText;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(5, 4, 5, 4);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "Form1";
             Text = "ScienceManager";
             ((System.ComponentModel.ISupportInitialize)IconSearch).EndInit();
