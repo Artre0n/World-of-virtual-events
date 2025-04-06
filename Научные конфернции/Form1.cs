@@ -48,24 +48,10 @@ namespace Научные_конфернции
         {
             textBoxTitle.Clear();
             textBoxDescription.Clear();
-            textBoxDate.Clear();
+            dateTimePicker1.Value = DateTime.Today;
             textBoxTime.Clear();
             textBoxCategory.Clear();
             textBoxParticipants.Clear();
-        }
-        private DateTimeOffset GetDateTimeFromTextBox(TextBox textBox)
-        {
-            if (DateTimeOffset.TryParse(textBox.Text, out DateTimeOffset result))
-            {
-                return result;
-            }
-            else
-            {
-                MessageBox.Show("Введите корректную дату в формате ДД.ММ.ГГГГ", "Ошибка",
-                              MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox.Focus();
-                throw new FormatException("Некорректный формат даты");
-            }
         }
         private TimeSpan GetTimeSpanFromTextBox(TextBox textBox)
         {
@@ -88,7 +74,7 @@ namespace Научные_конфернции
             {
                 Title = textBoxTitle.Text,
                 Description = textBoxDescription.Text,
-                Date = GetDateTimeFromTextBox(textBoxDate),
+                Date = dateTimePicker1.Value,
                 Time = GetTimeSpanFromTextBox(textBoxTime),
                 Category = textBoxCategory.Text,
                 Participants = textBoxParticipants.Text
@@ -115,6 +101,21 @@ namespace Научные_конфернции
         {
             groupBox1.Visible = false;
             ClearInputs();
+        }
+
+        private void IconSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

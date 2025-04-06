@@ -31,9 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             AddButton = new Button();
             DeleteButton = new Button();
-            ListHeading = new TextBox();
             listBox = new ListBox();
-            StripBackground = new TextBox();
             MainHeading = new TextBox();
             EditButton = new Button();
             SaveButton = new Button();
@@ -41,11 +39,11 @@
             SearchBar = new TextBox();
             IconSearch = new PictureBox();
             groupBox1 = new GroupBox();
+            dateTimePicker1 = new DateTimePicker();
             CancelButton = new Button();
             textBoxParticipants = new TextBox();
             textBoxCategory = new TextBox();
             textBoxTime = new TextBox();
-            textBoxDate = new TextBox();
             textBoxDescription = new TextBox();
             textBoxTitle = new TextBox();
             label8 = new Label();
@@ -54,8 +52,13 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            label6 = new Label();
+            panel1 = new Panel();
+            label7 = new Label();
+            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)IconSearch).BeginInit();
             groupBox1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // AddButton
@@ -73,26 +76,13 @@
             // DeleteButton
             // 
             DeleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            DeleteButton.Location = new Point(229, 907);
-            DeleteButton.Margin = new Padding(5, 4, 5, 4);
+            DeleteButton.Location = new Point(201, 680);
+            DeleteButton.Margin = new Padding(4, 3, 4, 3);
             DeleteButton.Name = "DeleteButton";
-            DeleteButton.Size = new Size(153, 51);
+            DeleteButton.Size = new Size(134, 38);
             DeleteButton.TabIndex = 1;
             DeleteButton.Text = "Удалить";
             DeleteButton.UseVisualStyleBackColor = true;
-            // 
-            // ListHeading
-            // 
-            ListHeading.BackColor = Color.CornflowerBlue;
-            ListHeading.BorderStyle = BorderStyle.FixedSingle;
-            ListHeading.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            ListHeading.Location = new Point(17, 52);
-            ListHeading.Margin = new Padding(5, 4, 5, 4);
-            ListHeading.Name = "ListHeading";
-            ListHeading.Size = new Size(365, 32);
-            ListHeading.TabIndex = 2;
-            ListHeading.Text = "Список конференций";
-            ListHeading.TextAlign = HorizontalAlignment.Center;
             // 
             // listBox
             // 
@@ -100,23 +90,12 @@
             listBox.BackColor = SystemColors.Menu;
             listBox.BorderStyle = BorderStyle.FixedSingle;
             listBox.FormattingEnabled = true;
-            listBox.Location = new Point(16, 124);
-            listBox.Margin = new Padding(5, 4, 5, 4);
+            listBox.ItemHeight = 15;
+            listBox.Location = new Point(13, 112);
+            listBox.Margin = new Padding(4, 3, 4, 3);
             listBox.Name = "listBox";
-            listBox.Size = new Size(367, 762);
+            listBox.Size = new Size(320, 557);
             listBox.TabIndex = 3;
-            // 
-            // StripBackground
-            // 
-            StripBackground.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            StripBackground.BackColor = Color.RoyalBlue;
-            StripBackground.BorderStyle = BorderStyle.None;
-            StripBackground.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            StripBackground.Location = new Point(0, 0);
-            StripBackground.Margin = new Padding(5, 4, 5, 4);
-            StripBackground.Name = "StripBackground";
-            StripBackground.Size = new Size(1493, 34);
-            StripBackground.TabIndex = 4;
             // 
             // MainHeading
             // 
@@ -170,8 +149,8 @@
             // 
             SearchBar.BackColor = SystemColors.Window;
             SearchBar.BorderStyle = BorderStyle.FixedSingle;
-            SearchBar.Location = new Point(40, 89);
-            SearchBar.Margin = new Padding(5, 4, 5, 4);
+            SearchBar.Location = new Point(35, 78);
+            SearchBar.Margin = new Padding(4, 3, 4, 3);
             SearchBar.Name = "SearchBar";
             SearchBar.Size = new Size(343, 27);
             SearchBar.TabIndex = 9;
@@ -182,21 +161,21 @@
             IconSearch.BackgroundImageLayout = ImageLayout.None;
             IconSearch.BorderStyle = BorderStyle.FixedSingle;
             IconSearch.Image = Properties.Resources.icon_magnifier;
-            IconSearch.Location = new Point(17, 89);
-            IconSearch.Margin = new Padding(5, 4, 5, 4);
+            IconSearch.Location = new Point(14, 78);
+            IconSearch.Margin = new Padding(4, 3, 4, 3);
             IconSearch.Name = "IconSearch";
             IconSearch.Size = new Size(28, 27);
             IconSearch.TabIndex = 10;
             IconSearch.TabStop = false;
+            IconSearch.Click += IconSearch_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(CancelButton);
             groupBox1.Controls.Add(textBoxParticipants);
             groupBox1.Controls.Add(textBoxCategory);
             groupBox1.Controls.Add(textBoxTime);
-            groupBox1.Controls.Add(textBoxDate);
             groupBox1.Controls.Add(SaveButton);
             groupBox1.Controls.Add(textBoxDescription);
             groupBox1.Controls.Add(textBoxTitle);
@@ -216,6 +195,13 @@
             groupBox1.TabStop = false;
             groupBox1.Visible = false;
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(140, 269);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(481, 20);
+            dateTimePicker1.TabIndex = 13;
             // 
             // CancelButton
             // 
@@ -253,15 +239,6 @@
             textBoxTime.Name = "textBoxTime";
             textBoxTime.Size = new Size(549, 23);
             textBoxTime.TabIndex = 13;
-            // 
-            // textBoxDate
-            // 
-            textBoxDate.Location = new Point(171, 359);
-            textBoxDate.Margin = new Padding(3, 4, 3, 4);
-            textBoxDate.Name = "textBoxDate";
-            textBoxDate.Size = new Size(549, 23);
-            textBoxDate.TabIndex = 12;
-            textBoxDate.TextChanged += textBox3_TextChanged;
             // 
             // textBoxDescription
             // 
@@ -341,12 +318,52 @@
             label1.TabIndex = 0;
             label1.Text = "Название";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(100, 49);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 15);
+            label6.TabIndex = 12;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.CornflowerBlue;
+            panel1.Controls.Add(label7);
+            panel1.Location = new Point(14, 39);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(319, 33);
+            panel1.TabIndex = 13;
+            panel1.Paint += panel1_Paint;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.CornflowerBlue;
+            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label7.Location = new Point(58, 4);
+            label7.Name = "label7";
+            label7.Size = new Size(199, 25);
+            label7.TabIndex = 0;
+            label7.Text = "Список конференций";
+            label7.Click += label7_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.CornflowerBlue;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1297, 28);
+            panel2.TabIndex = 14;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1481, 989);
+            ClientSize = new Size(1296, 742);
+            Controls.Add(panel1);
+            Controls.Add(label6);
             Controls.Add(groupBox1);
             Controls.Add(IconSearch);
             Controls.Add(SearchBar);
@@ -354,10 +371,9 @@
             Controls.Add(EditButton);
             Controls.Add(MainHeading);
             Controls.Add(listBox);
-            Controls.Add(ListHeading);
             Controls.Add(DeleteButton);
             Controls.Add(AddButton);
-            Controls.Add(StripBackground);
+            Controls.Add(panel2);
             ForeColor = SystemColors.ControlText;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
@@ -366,6 +382,8 @@
             ((System.ComponentModel.ISupportInitialize)IconSearch).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -374,9 +392,7 @@
 
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.TextBox ListHeading;
         private System.Windows.Forms.ListBox listBox;
-        private System.Windows.Forms.TextBox StripBackground;
         private System.Windows.Forms.TextBox MainHeading;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button SaveButton;
@@ -392,10 +408,14 @@
         private Label label1;
         private TextBox textBoxTitle;
         private TextBox textBoxDescription;
-        private TextBox textBoxDate;
         private TextBox textBoxTime;
         private TextBox textBoxParticipants;
         private TextBox textBoxCategory;
         private Button CancelButton;
+        private Label label6;
+        private DateTimePicker dateTimePicker1;
+        private Panel panel1;
+        private Label label7;
+        private Panel panel2;
     }
 }
