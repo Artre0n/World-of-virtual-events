@@ -14,7 +14,7 @@ namespace Научные_конфернции
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
             
             
         }
