@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Science Conferences", "Научные конфернции\Science Conferences.csproj", "{C28650B3-4169-4117-B4F0-43FFEDA15C03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Science Conferences", "Science Conferences\Science Conferences.csproj", "{C28650B3-4169-4117-B4F0-43FFEDA15C03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
