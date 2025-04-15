@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Научные_конфернции.Properties {
+namespace Science_Conferences.Properties {
     using System;
     
     

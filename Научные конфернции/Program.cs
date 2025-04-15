@@ -1,6 +1,4 @@
-using Microsoft.VisualBasic.ApplicationServices;
-using Научные_конфернции;
-namespace Научные_конфернции
+namespace Science_Conferences
 {
     internal static class Program
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Научные_конфернции
+namespace Science_Conferences
 {
     public class ApplicationContext : DbContext
     {

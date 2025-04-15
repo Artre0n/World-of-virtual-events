@@ -1,4 +1,4 @@
-namespace Научные_конфернции
+namespace Science_Conferences
 {
     public partial class MainForm : Form
     {
@@ -15,10 +15,13 @@ namespace Научные_конфернции
         #region Методы
         private void LoadConferencesToListBox()
         {
-            var conferences = db.Conferences.ToList();
-            listBoxOfConferences.DataSource = conferences;
+            listBoxOfConferences.DataSource = db.Conferences.ToList();
             listBoxOfConferences.DisplayMember = "Title";
         }
+        /// <summary>
+        /// Метод добавления конференции в бд
+        /// </summary>
+        /// <param name="conference">конференция</param>
         public void AddConference(Conference conference)
         {
             db.Conferences.Add(conference);
@@ -35,8 +38,13 @@ namespace Научные_конфернции
             db.Conferences.Remove(conference);
             db.SaveChanges();
         }
-
-        public TimeSpan GetTimeSpanFromTextBox(TextBox textBox)
+        /// <summary>
+        /// Метод перевода из TextBox в TimeSpan
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <returns></returns>
+        /// <exception cref="FormatException"></exception>
+        public TimeSpan GetTimeSpanFromTextBox(TextBox textBox) // Переделать без исключения
         {
             if (TimeSpan.TryParse(textBox.Text, out TimeSpan result))
             {
@@ -51,10 +59,14 @@ namespace Научные_конфернции
                 throw new FormatException("Некорректный формат времени");
             }
         }
+        /// <summary>
+        /// Метод перевода из TimeSpan в TextBox
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
         public string GetStringFromTimeSpan(TimeSpan time)
         {
-            string timeString = time.ToString();
-            return timeString;
+            return time.ToString();
         }
         #endregion
 
@@ -86,7 +98,7 @@ namespace Научные_конфернции
                 comboBoxCategoryEditing.SelectedItem = selectedConference.Category;
                 textBoxParticipantsEditing.Text = selectedConference.Participants;
 
-                MainHeading.Text = selectedConference.Title;
+                label1.Text = selectedConference.Title;
 
                 groupBoxEditing.Visible = true;
                 groupBoxEditing.Enabled = false;
@@ -102,7 +114,7 @@ namespace Научные_конфернции
                 MessageBox.Show("Конференция удалена", "Оповещение", MessageBoxButtons.OK);
                 LoadConferencesToListBox();
                 groupBoxEditing.Visible = false;
-                MainHeading.Clear();
+                label1.Text = string.Empty;
             }
         }
     }

@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Научные_конфернции;
+using Science_Conferences;
 
 #nullable disable
 
-namespace Научные_конфернции.Migrations
+namespace Science_Conferences.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
     [Migration("20250403174323_Initial")]

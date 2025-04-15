@@ -1,4 +1,4 @@
-﻿namespace Научные_конфернции
+﻿namespace Science_Conferences
 {
     public partial class AddForm : Form
     {
@@ -26,9 +26,6 @@
             Close();
         }
 
-        private void CancelButtonAdding_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void CancelButtonAdding_Click(object sender, EventArgs e) => Close();
     }
 }

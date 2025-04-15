@@ -1,4 +1,4 @@
-﻿namespace Научные_конфернции
+﻿namespace Science_Conferences
 {
     partial class AddForm
     {
@@ -48,7 +48,7 @@
             // 
             // groupBoxAdding
             // 
-            groupBoxAdding.BackColor = SystemColors.ActiveCaption;
+            groupBoxAdding.BackColor = SystemColors.GradientActiveCaption;
             groupBoxAdding.Controls.Add(comboBoxCategoryAdding);
             groupBoxAdding.Controls.Add(CancelButtonAdding);
             groupBoxAdding.Controls.Add(SaveButtonAdding);
@@ -66,7 +66,7 @@
             groupBoxAdding.Font = new Font("Microsoft Sans Serif", 8.25F);
             groupBoxAdding.Location = new Point(115, 12);
             groupBoxAdding.Name = "groupBoxAdding";
-            groupBoxAdding.Size = new Size(697, 615);
+            groupBoxAdding.Size = new Size(723, 631);
             groupBoxAdding.TabIndex = 12;
             groupBoxAdding.TabStop = false;
             // 
@@ -83,25 +83,31 @@
             // CancelButtonAdding
             // 
             CancelButtonAdding.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            CancelButtonAdding.Location = new Point(539, 563);
+            CancelButtonAdding.BackColor = Color.CornflowerBlue;
+            CancelButtonAdding.FlatStyle = FlatStyle.Popup;
+            CancelButtonAdding.ForeColor = SystemColors.ControlLightLight;
+            CancelButtonAdding.Location = new Point(534, 579);
             CancelButtonAdding.Margin = new Padding(4, 3, 4, 3);
             CancelButtonAdding.Name = "CancelButtonAdding";
-            CancelButtonAdding.Size = new Size(134, 36);
+            CancelButtonAdding.Size = new Size(156, 38);
             CancelButtonAdding.TabIndex = 18;
             CancelButtonAdding.Text = "Отмена";
-            CancelButtonAdding.UseVisualStyleBackColor = true;
+            CancelButtonAdding.UseVisualStyleBackColor = false;
             CancelButtonAdding.Click += CancelButtonAdding_Click;
             // 
             // SaveButtonAdding
             // 
             SaveButtonAdding.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            SaveButtonAdding.Location = new Point(25, 563);
+            SaveButtonAdding.BackColor = Color.CornflowerBlue;
+            SaveButtonAdding.FlatStyle = FlatStyle.Popup;
+            SaveButtonAdding.ForeColor = SystemColors.ControlLightLight;
+            SaveButtonAdding.Location = new Point(370, 579);
             SaveButtonAdding.Margin = new Padding(4, 3, 4, 3);
             SaveButtonAdding.Name = "SaveButtonAdding";
-            SaveButtonAdding.Size = new Size(134, 36);
+            SaveButtonAdding.Size = new Size(156, 38);
             SaveButtonAdding.TabIndex = 17;
             SaveButtonAdding.Text = "Сохранить";
-            SaveButtonAdding.UseVisualStyleBackColor = true;
+            SaveButtonAdding.UseVisualStyleBackColor = false;
             SaveButtonAdding.Click += SaveButtonAdding_Click;
             // 
             // dateTimePickerAdding
@@ -146,6 +152,7 @@
             // 
             participantsLabelAdding.AutoSize = true;
             participantsLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            participantsLabelAdding.ForeColor = Color.MidnightBlue;
             participantsLabelAdding.Location = new Point(29, 405);
             participantsLabelAdding.Name = "participantsLabelAdding";
             participantsLabelAdding.Size = new Size(113, 30);
@@ -156,6 +163,7 @@
             // 
             categorylabelAdding.AutoSize = true;
             categorylabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            categorylabelAdding.ForeColor = Color.MidnightBlue;
             categorylabelAdding.Location = new Point(25, 356);
             categorylabelAdding.Name = "categorylabelAdding";
             categorylabelAdding.Size = new Size(111, 30);
@@ -166,6 +174,7 @@
             // 
             timeLabelAdding.AutoSize = true;
             timeLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            timeLabelAdding.ForeColor = Color.MidnightBlue;
             timeLabelAdding.Location = new Point(25, 308);
             timeLabelAdding.Name = "timeLabelAdding";
             timeLabelAdding.Size = new Size(74, 30);
@@ -176,6 +185,7 @@
             // 
             dateLabelAdding.AutoSize = true;
             dateLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dateLabelAdding.ForeColor = Color.MidnightBlue;
             dateLabelAdding.Location = new Point(29, 259);
             dateLabelAdding.Name = "dateLabelAdding";
             dateLabelAdding.Size = new Size(59, 30);
@@ -186,6 +196,7 @@
             // 
             decriptionLabelAdding.AutoSize = true;
             decriptionLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            decriptionLabelAdding.ForeColor = Color.MidnightBlue;
             decriptionLabelAdding.Location = new Point(25, 115);
             decriptionLabelAdding.Name = "decriptionLabelAdding";
             decriptionLabelAdding.Size = new Size(109, 30);
@@ -196,6 +207,7 @@
             // 
             titleLabelAdding.AutoSize = true;
             titleLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            titleLabelAdding.ForeColor = Color.MidnightBlue;
             titleLabelAdding.Location = new Point(25, 34);
             titleLabelAdding.Name = "titleLabelAdding";
             titleLabelAdding.Size = new Size(105, 30);

@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Научные_конфернции;
+using Science_Conferences;
 
 #nullable disable
 
-namespace Научные_конфернции.Migrations
+namespace Science_Conferences.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
     partial class ApplicationContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace Научные_конфернции.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Научные_конфернции.Conference", b =>
+            modelBuilder.Entity("Science_Conferences.Conference", b =>
                 {
                     b.Property<int>("ConferenceId")
                         .ValueGeneratedOnAdd()
