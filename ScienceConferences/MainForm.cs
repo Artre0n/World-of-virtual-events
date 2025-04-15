@@ -1,21 +1,26 @@
+using ScienceConferences.Data;
+
 namespace Science_Conferences
 {
     public partial class MainForm : Form
     {
-        private ApplicationContext db;
         private Conference? selectedConference;
+        private ConferencesRepository conferencesRepository;
 
         public MainForm()
         {
             InitializeComponent();
-            db = new ApplicationContext();
+
+            AppDbContext db = new AppDbContext();
+            conferencesRepository = new ConferencesRepository(db);
+
             LoadConferencesToListBox();
 
         }
         #region Методы
         private void LoadConferencesToListBox()
         {
-            listBoxOfConferences.DataSource = db.Conferences.ToList();
+            listBoxOfConferences.DataSource = conferencesRepository.GetAllConferences();
             listBoxOfConferences.DisplayMember = "Title";
         }
         /// <summary>
@@ -24,19 +29,16 @@ namespace Science_Conferences
         /// <param name="conference">конференция</param>
         public void AddConference(Conference conference)
         {
-            db.Conferences.Add(conference);
-            db.SaveChanges();
+            conferencesRepository.AddConference(conference);
             LoadConferencesToListBox();
         }
         private void UpdateConference(Conference conference)
         {
-            db.Conferences.Update(conference);
-            db.SaveChanges();
+            conferencesRepository.UpdateConference(conference);
         }
         private void DeleteConference(Conference conference)
         {
-            db.Conferences.Remove(conference);
-            db.SaveChanges();
+            conferencesRepository.DeleteConference(conference);
         }
         /// <summary>
         /// Метод перевода из TextBox в TimeSpan

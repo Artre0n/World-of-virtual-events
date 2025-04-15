@@ -2,21 +2,18 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Science_Conferences;
+using ScienceConferences.Data;
 
 #nullable disable
 
 namespace Science_Conferences.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20250403174323_Initial")]
-    partial class Initial
+    partial class ApplicationContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,7 +22,7 @@ namespace Science_Conferences.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Научные_конфернции.Conference", b =>
+            modelBuilder.Entity("Science_Conferences.Conference", b =>
                 {
                     b.Property<int>("ConferenceId")
                         .ValueGeneratedOnAdd()
