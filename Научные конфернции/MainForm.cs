@@ -44,7 +44,7 @@ namespace Science_Conferences
         /// <param name="textBox"></param>
         /// <returns></returns>
         /// <exception cref="FormatException"></exception>
-        public TimeSpan GetTimeSpanFromTextBox(TextBox textBox) // Переделать без исключения
+        public TimeSpan GetTimeSpanFromTextBox(MaskedTextBox textBox) // Переделать без исключения
         {
             if (TimeSpan.TryParse(textBox.Text, out TimeSpan result))
             {
@@ -69,23 +69,8 @@ namespace Science_Conferences
             return time.ToString();
         }
         #endregion
-
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            var addForm = new AddForm(this);
-            addForm.ShowDialog();
-        }
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        #region Методы для событий
+        #region ListOfConferences
         private void listBoxOfConferences_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedConference = (Conference?)listBoxOfConferences.SelectedItem;
@@ -94,7 +79,7 @@ namespace Science_Conferences
                 textBoxTitleEditing.Text = selectedConference.Title;
                 textBoxDescriptionEditing.Text = selectedConference.Description;
                 dateTimePickerEditing.Value = selectedConference.Date;
-                textBoxTimeEditing.Text = GetStringFromTimeSpan(selectedConference.Time);
+                maskedTextBoxTimeEditing.Text = GetStringFromTimeSpan(selectedConference.Time);
                 comboBoxCategoryEditing.SelectedItem = selectedConference.Category;
                 textBoxParticipantsEditing.Text = selectedConference.Participants;
 
@@ -105,6 +90,9 @@ namespace Science_Conferences
             }
 
         }
+        #endregion
+        #region Добавление
+        private void AddButton_Click(object sender, EventArgs e) => new AddForm(this).ShowDialog();
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
@@ -115,6 +103,72 @@ namespace Science_Conferences
                 LoadConferencesToListBox();
                 groupBoxEditing.Visible = false;
                 label1.Text = string.Empty;
+            }
+        }
+        #endregion
+        #region Редактирование
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            groupBoxEditing.Enabled = true;
+            groupBoxEditing.Visible = true;
+        }
+
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            if (selectedConference != null)
+            {
+                selectedConference.Title = textBoxTitleEditing.Text;
+                selectedConference.Description = textBoxDescriptionEditing.Text;
+                selectedConference.Date = dateTimePickerEditing.Value;
+                selectedConference.Time = GetTimeSpanFromTextBox(maskedTextBoxTimeEditing);
+                selectedConference.Category = comboBoxCategoryEditing.Text;
+                selectedConference.Participants = textBoxParticipantsEditing.Text;
+                UpdateConference(selectedConference);
+                MessageBox.Show("Конференция обновлена", "Оповещение", MessageBoxButtons.OK);
+                groupBoxEditing.Enabled = false;
+                LoadConferencesToListBox();
+
+            }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            groupBoxEditing.Enabled = false;
+            groupBoxEditing.Visible = false;
+        }
+        #endregion
+        #endregion
+
+        private void SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            listBoxOfConferences.DataSource = db.Conferences
+                .Where(conf => conf.Title.ToLower()
+                .Contains(SearchBar.Text.ToLower()))
+                .ToList();
+        }
+
+        private void comboBoxSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBoxSort.SelectedIndex)
+            {
+                case 0:
+                    listBoxOfConferences.DataSource = db.Conferences
+                        .OrderBy(conf => conf.Date)
+                        .ThenBy(conf => conf.Time)
+                        .ToList();
+                    break;
+                case 1:
+                    listBoxOfConferences.DataSource = db.Conferences
+                        .OrderBy(conf => conf.Category)
+                        .ThenBy(conf => conf.Date)
+                        .ToList();
+                    break;
+                case 2:
+                    LoadConferencesToListBox();
+                    break;
+                default:
+                    LoadConferencesToListBox();
+                    break;
             }
         }
     }

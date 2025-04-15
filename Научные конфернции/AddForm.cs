@@ -16,7 +16,7 @@
                 Title = textBoxTitleAdding.Text,
                 Description = textBoxDescriptionAdding.Text,
                 Date = dateTimePickerAdding.Value,
-                Time = mainForm.GetTimeSpanFromTextBox(textBoxTimeAdding),
+                Time = mainForm.GetTimeSpanFromTextBox(maskedTextBoxTimeAdding),//mainForm.GetTimeSpanFromTextBox(textBoxTimeAdding)
                 Category = comboBoxCategoryAdding.Text,
                 Participants = textBoxParticipantsAdding.Text
             };

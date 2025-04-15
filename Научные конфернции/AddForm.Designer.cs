@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddForm));
             groupBoxAdding = new GroupBox();
+            maskedTextBoxTimeAdding = new MaskedTextBox();
             comboBoxCategoryAdding = new ComboBox();
             CancelButtonAdding = new Button();
             SaveButtonAdding = new Button();
             dateTimePickerAdding = new DateTimePicker();
             textBoxParticipantsAdding = new TextBox();
-            textBoxTimeAdding = new TextBox();
             textBoxDescriptionAdding = new TextBox();
             textBoxTitleAdding = new TextBox();
             participantsLabelAdding = new Label();
@@ -49,12 +50,12 @@
             // groupBoxAdding
             // 
             groupBoxAdding.BackColor = SystemColors.GradientActiveCaption;
+            groupBoxAdding.Controls.Add(maskedTextBoxTimeAdding);
             groupBoxAdding.Controls.Add(comboBoxCategoryAdding);
             groupBoxAdding.Controls.Add(CancelButtonAdding);
             groupBoxAdding.Controls.Add(SaveButtonAdding);
             groupBoxAdding.Controls.Add(dateTimePickerAdding);
             groupBoxAdding.Controls.Add(textBoxParticipantsAdding);
-            groupBoxAdding.Controls.Add(textBoxTimeAdding);
             groupBoxAdding.Controls.Add(textBoxDescriptionAdding);
             groupBoxAdding.Controls.Add(textBoxTitleAdding);
             groupBoxAdding.Controls.Add(participantsLabelAdding);
@@ -69,6 +70,16 @@
             groupBoxAdding.Size = new Size(723, 631);
             groupBoxAdding.TabIndex = 12;
             groupBoxAdding.TabStop = false;
+            // 
+            // maskedTextBoxTimeAdding
+            // 
+            maskedTextBoxTimeAdding.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBoxTimeAdding.Location = new Point(150, 319);
+            maskedTextBoxTimeAdding.Mask = "00:00";
+            maskedTextBoxTimeAdding.Name = "maskedTextBoxTimeAdding";
+            maskedTextBoxTimeAdding.Size = new Size(481, 20);
+            maskedTextBoxTimeAdding.TabIndex = 20;
+            maskedTextBoxTimeAdding.ValidatingType = typeof(DateTime);
             // 
             // comboBoxCategoryAdding
             // 
@@ -125,13 +136,6 @@
             textBoxParticipantsAdding.Name = "textBoxParticipantsAdding";
             textBoxParticipantsAdding.Size = new Size(481, 127);
             textBoxParticipantsAdding.TabIndex = 15;
-            // 
-            // textBoxTimeAdding
-            // 
-            textBoxTimeAdding.Location = new Point(150, 317);
-            textBoxTimeAdding.Name = "textBoxTimeAdding";
-            textBoxTimeAdding.Size = new Size(481, 20);
-            textBoxTimeAdding.TabIndex = 13;
             // 
             // textBoxDescriptionAdding
             // 
@@ -221,8 +225,9 @@
             BackColor = Color.CornflowerBlue;
             ClientSize = new Size(924, 655);
             Controls.Add(groupBoxAdding);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddForm";
-            Text = "Form2";
+            Text = "Редактор";
             groupBoxAdding.ResumeLayout(false);
             groupBoxAdding.PerformLayout();
             ResumeLayout(false);
@@ -233,7 +238,6 @@
         private GroupBox groupBoxAdding;
         private DateTimePicker dateTimePickerAdding;
         private TextBox textBoxParticipantsAdding;
-        private TextBox textBoxTimeAdding;
         private TextBox textBoxDescriptionAdding;
         private TextBox textBoxTitleAdding;
         private Label participantsLabelAdding;
@@ -245,5 +249,6 @@
         private Button SaveButtonAdding;
         private Button CancelButtonAdding;
         private ComboBox comboBoxCategoryAdding;
+        private MaskedTextBox maskedTextBoxTimeAdding;
     }
 }

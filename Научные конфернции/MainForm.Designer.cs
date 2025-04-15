@@ -33,15 +33,15 @@
             DeleteButton = new Button();
             listBoxOfConferences = new ListBox();
             EditButton = new Button();
-            SaveButtonEditing = new Button();
+            ChangeButtonEditing = new Button();
             SearchBar = new TextBox();
             IconSearch = new PictureBox();
             groupBoxEditing = new GroupBox();
+            maskedTextBoxTimeEditing = new MaskedTextBox();
             comboBoxCategoryEditing = new ComboBox();
             dateTimePickerEditing = new DateTimePicker();
             CancelButtonEditing = new Button();
             textBoxParticipantsEditing = new TextBox();
-            textBoxTimeEditing = new TextBox();
             textBoxDescriptionEditing = new TextBox();
             textBoxTitleEditing = new TextBox();
             participantsLabelEditing = new Label();
@@ -50,12 +50,12 @@
             dateLabelEditing = new Label();
             describtionLabelEditing = new Label();
             titleLabelEditing = new Label();
-            label6 = new Label();
             panel1 = new Panel();
             labelListOfConferences = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
             label1 = new Label();
+            comboBoxSort = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)IconSearch).BeginInit();
             groupBoxEditing.SuspendLayout();
             panel1.SuspendLayout();
@@ -69,7 +69,7 @@
             AddButton.FlatAppearance.BorderSize = 0;
             AddButton.FlatStyle = FlatStyle.Popup;
             AddButton.ForeColor = SystemColors.ControlLightLight;
-            AddButton.Location = new Point(11, 622);
+            AddButton.Location = new Point(11, 627);
             AddButton.Margin = new Padding(4, 3, 4, 3);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(156, 38);
@@ -84,7 +84,7 @@
             DeleteButton.BackColor = Color.CornflowerBlue;
             DeleteButton.FlatStyle = FlatStyle.Popup;
             DeleteButton.ForeColor = SystemColors.ControlLightLight;
-            DeleteButton.Location = new Point(175, 622);
+            DeleteButton.Location = new Point(175, 627);
             DeleteButton.Margin = new Padding(4, 3, 4, 3);
             DeleteButton.Name = "DeleteButton";
             DeleteButton.Size = new Size(156, 38);
@@ -109,32 +109,33 @@
             // 
             // EditButton
             // 
-            EditButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            EditButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             EditButton.BackColor = Color.CornflowerBlue;
             EditButton.FlatStyle = FlatStyle.Popup;
             EditButton.ForeColor = SystemColors.ControlLightLight;
-            EditButton.Location = new Point(11, 675);
+            EditButton.Location = new Point(11, 680);
             EditButton.Margin = new Padding(4, 3, 4, 3);
             EditButton.Name = "EditButton";
             EditButton.Size = new Size(320, 38);
             EditButton.TabIndex = 6;
             EditButton.Text = "Редактировать";
             EditButton.UseVisualStyleBackColor = false;
+            EditButton.Click += EditButton_Click;
             // 
-            // SaveButtonEditing
+            // ChangeButtonEditing
             // 
-            SaveButtonEditing.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            SaveButtonEditing.BackColor = Color.CornflowerBlue;
-            SaveButtonEditing.FlatStyle = FlatStyle.Popup;
-            SaveButtonEditing.ForeColor = SystemColors.ControlLightLight;
-            SaveButtonEditing.Location = new Point(370, 606);
-            SaveButtonEditing.Margin = new Padding(4, 3, 4, 3);
-            SaveButtonEditing.Name = "SaveButtonEditing";
-            SaveButtonEditing.Size = new Size(156, 38);
-            SaveButtonEditing.TabIndex = 7;
-            SaveButtonEditing.Text = "Сохранить";
-            SaveButtonEditing.UseVisualStyleBackColor = false;
-            SaveButtonEditing.Click += SaveButton_Click;
+            ChangeButtonEditing.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ChangeButtonEditing.BackColor = Color.CornflowerBlue;
+            ChangeButtonEditing.FlatStyle = FlatStyle.Popup;
+            ChangeButtonEditing.ForeColor = SystemColors.ControlLightLight;
+            ChangeButtonEditing.Location = new Point(352, 606);
+            ChangeButtonEditing.Margin = new Padding(4, 3, 4, 3);
+            ChangeButtonEditing.Name = "ChangeButtonEditing";
+            ChangeButtonEditing.Size = new Size(156, 38);
+            ChangeButtonEditing.TabIndex = 7;
+            ChangeButtonEditing.Text = "Изменить";
+            ChangeButtonEditing.UseVisualStyleBackColor = false;
+            ChangeButtonEditing.Click += ChangeButton_Click;
             // 
             // SearchBar
             // 
@@ -142,9 +143,11 @@
             SearchBar.BorderStyle = BorderStyle.FixedSingle;
             SearchBar.Location = new Point(31, 78);
             SearchBar.Margin = new Padding(4, 2, 4, 2);
+            SearchBar.MaxLength = 20;
             SearchBar.Name = "SearchBar";
             SearchBar.Size = new Size(300, 23);
             SearchBar.TabIndex = 9;
+            SearchBar.TextChanged += SearchBar_TextChanged;
             // 
             // IconSearch
             // 
@@ -155,7 +158,7 @@
             IconSearch.Location = new Point(11, 78);
             IconSearch.Margin = new Padding(4, 2, 4, 2);
             IconSearch.Name = "IconSearch";
-            IconSearch.Size = new Size(24, 23);
+            IconSearch.Size = new Size(23, 23);
             IconSearch.TabIndex = 10;
             IconSearch.TabStop = false;
             // 
@@ -163,12 +166,12 @@
             // 
             groupBoxEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             groupBoxEditing.BackColor = SystemColors.GradientActiveCaption;
+            groupBoxEditing.Controls.Add(maskedTextBoxTimeEditing);
             groupBoxEditing.Controls.Add(comboBoxCategoryEditing);
             groupBoxEditing.Controls.Add(dateTimePickerEditing);
             groupBoxEditing.Controls.Add(CancelButtonEditing);
             groupBoxEditing.Controls.Add(textBoxParticipantsEditing);
-            groupBoxEditing.Controls.Add(textBoxTimeEditing);
-            groupBoxEditing.Controls.Add(SaveButtonEditing);
+            groupBoxEditing.Controls.Add(ChangeButtonEditing);
             groupBoxEditing.Controls.Add(textBoxDescriptionEditing);
             groupBoxEditing.Controls.Add(textBoxTitleEditing);
             groupBoxEditing.Controls.Add(participantsLabelEditing);
@@ -178,22 +181,33 @@
             groupBoxEditing.Controls.Add(describtionLabelEditing);
             groupBoxEditing.Controls.Add(titleLabelEditing);
             groupBoxEditing.Font = new Font("Microsoft Sans Serif", 8.25F);
-            groupBoxEditing.Location = new Point(408, 63);
+            groupBoxEditing.Location = new Point(408, 65);
             groupBoxEditing.Name = "groupBoxEditing";
-            groupBoxEditing.Size = new Size(697, 650);
+            groupBoxEditing.Size = new Size(679, 650);
             groupBoxEditing.TabIndex = 11;
             groupBoxEditing.TabStop = false;
             groupBoxEditing.Visible = false;
             // 
+            // maskedTextBoxTimeEditing
+            // 
+            maskedTextBoxTimeEditing.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBoxTimeEditing.Location = new Point(150, 304);
+            maskedTextBoxTimeEditing.Mask = "00:00";
+            maskedTextBoxTimeEditing.Name = "maskedTextBoxTimeEditing";
+            maskedTextBoxTimeEditing.Size = new Size(463, 20);
+            maskedTextBoxTimeEditing.TabIndex = 21;
+            maskedTextBoxTimeEditing.ValidatingType = typeof(DateTime);
+            // 
             // comboBoxCategoryEditing
             // 
-            comboBoxCategoryEditing.Anchor = AnchorStyles.Right;
+            comboBoxCategoryEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxCategoryEditing.AutoCompleteMode = AutoCompleteMode.Suggest;
             comboBoxCategoryEditing.FormattingEnabled = true;
             comboBoxCategoryEditing.ImeMode = ImeMode.NoControl;
             comboBoxCategoryEditing.Items.AddRange(new object[] { "Физика", "Химия", "Биология", "Астрология", "Математика" });
             comboBoxCategoryEditing.Location = new Point(150, 351);
             comboBoxCategoryEditing.Name = "comboBoxCategoryEditing";
-            comboBoxCategoryEditing.Size = new Size(481, 21);
+            comboBoxCategoryEditing.Size = new Size(463, 21);
             comboBoxCategoryEditing.TabIndex = 20;
             // 
             // dateTimePickerEditing
@@ -202,7 +216,7 @@
             dateTimePickerEditing.Location = new Point(150, 252);
             dateTimePickerEditing.Margin = new Padding(3, 2, 3, 2);
             dateTimePickerEditing.Name = "dateTimePickerEditing";
-            dateTimePickerEditing.Size = new Size(481, 20);
+            dateTimePickerEditing.Size = new Size(463, 20);
             dateTimePickerEditing.TabIndex = 13;
             // 
             // CancelButtonEditing
@@ -212,7 +226,7 @@
             CancelButtonEditing.BackgroundImageLayout = ImageLayout.None;
             CancelButtonEditing.FlatStyle = FlatStyle.Popup;
             CancelButtonEditing.ForeColor = SystemColors.ControlLightLight;
-            CancelButtonEditing.Location = new Point(534, 606);
+            CancelButtonEditing.Location = new Point(516, 606);
             CancelButtonEditing.Margin = new Padding(4, 3, 4, 3);
             CancelButtonEditing.Name = "CancelButtonEditing";
             CancelButtonEditing.Size = new Size(156, 38);
@@ -225,26 +239,20 @@
             // 
             textBoxParticipantsEditing.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxParticipantsEditing.Location = new Point(150, 405);
+            textBoxParticipantsEditing.MaxLength = 531;
             textBoxParticipantsEditing.Multiline = true;
             textBoxParticipantsEditing.Name = "textBoxParticipantsEditing";
-            textBoxParticipantsEditing.Size = new Size(481, 127);
+            textBoxParticipantsEditing.Size = new Size(463, 127);
             textBoxParticipantsEditing.TabIndex = 15;
-            // 
-            // textBoxTimeEditing
-            // 
-            textBoxTimeEditing.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTimeEditing.Location = new Point(150, 304);
-            textBoxTimeEditing.Name = "textBoxTimeEditing";
-            textBoxTimeEditing.Size = new Size(481, 20);
-            textBoxTimeEditing.TabIndex = 13;
             // 
             // textBoxDescriptionEditing
             // 
             textBoxDescriptionEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBoxDescriptionEditing.Location = new Point(150, 100);
+            textBoxDescriptionEditing.MaxLength = 472;
             textBoxDescriptionEditing.Multiline = true;
             textBoxDescriptionEditing.Name = "textBoxDescriptionEditing";
-            textBoxDescriptionEditing.Size = new Size(481, 119);
+            textBoxDescriptionEditing.Size = new Size(463, 119);
             textBoxDescriptionEditing.TabIndex = 9;
             // 
             // textBoxTitleEditing
@@ -252,7 +260,7 @@
             textBoxTitleEditing.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxTitleEditing.Location = new Point(150, 44);
             textBoxTitleEditing.Name = "textBoxTitleEditing";
-            textBoxTitleEditing.Size = new Size(481, 20);
+            textBoxTitleEditing.Size = new Size(463, 20);
             textBoxTitleEditing.TabIndex = 8;
             // 
             // participantsLabelEditing
@@ -261,11 +269,11 @@
             participantsLabelEditing.AutoSize = true;
             participantsLabelEditing.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             participantsLabelEditing.ForeColor = Color.MidnightBlue;
-            participantsLabelEditing.Location = new Point(29, 405);
+            participantsLabelEditing.Location = new Point(29, 395);
             participantsLabelEditing.Name = "participantsLabelEditing";
-            participantsLabelEditing.Size = new Size(113, 30);
+            participantsLabelEditing.Size = new Size(124, 30);
             participantsLabelEditing.TabIndex = 7;
-            participantsLabelEditing.Text = "Участники";
+            participantsLabelEditing.Text = "Участники :";
             // 
             // CategoryLabelEditing
             // 
@@ -273,11 +281,11 @@
             CategoryLabelEditing.AutoSize = true;
             CategoryLabelEditing.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             CategoryLabelEditing.ForeColor = Color.MidnightBlue;
-            CategoryLabelEditing.Location = new Point(25, 341);
+            CategoryLabelEditing.Location = new Point(29, 342);
             CategoryLabelEditing.Name = "CategoryLabelEditing";
-            CategoryLabelEditing.Size = new Size(111, 30);
+            CategoryLabelEditing.Size = new Size(122, 30);
             CategoryLabelEditing.TabIndex = 4;
-            CategoryLabelEditing.Text = "Категория";
+            CategoryLabelEditing.Text = "Категория :";
             // 
             // timeLabelEditing
             // 
@@ -285,11 +293,11 @@
             timeLabelEditing.AutoSize = true;
             timeLabelEditing.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             timeLabelEditing.ForeColor = Color.MidnightBlue;
-            timeLabelEditing.Location = new Point(25, 294);
+            timeLabelEditing.Location = new Point(29, 294);
             timeLabelEditing.Name = "timeLabelEditing";
-            timeLabelEditing.Size = new Size(74, 30);
+            timeLabelEditing.Size = new Size(85, 30);
             timeLabelEditing.TabIndex = 3;
-            timeLabelEditing.Text = "Время";
+            timeLabelEditing.Text = "Время :";
             // 
             // dateLabelEditing
             // 
@@ -297,11 +305,11 @@
             dateLabelEditing.AutoSize = true;
             dateLabelEditing.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             dateLabelEditing.ForeColor = Color.MidnightBlue;
-            dateLabelEditing.Location = new Point(29, 252);
+            dateLabelEditing.Location = new Point(29, 245);
             dateLabelEditing.Name = "dateLabelEditing";
-            dateLabelEditing.Size = new Size(59, 30);
+            dateLabelEditing.Size = new Size(70, 30);
             dateLabelEditing.TabIndex = 2;
-            dateLabelEditing.Text = "Дата";
+            dateLabelEditing.Text = "Дата :";
             // 
             // describtionLabelEditing
             // 
@@ -309,11 +317,11 @@
             describtionLabelEditing.AutoSize = true;
             describtionLabelEditing.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             describtionLabelEditing.ForeColor = Color.MidnightBlue;
-            describtionLabelEditing.Location = new Point(21, 100);
+            describtionLabelEditing.Location = new Point(29, 90);
             describtionLabelEditing.Name = "describtionLabelEditing";
-            describtionLabelEditing.Size = new Size(109, 30);
+            describtionLabelEditing.Size = new Size(120, 30);
             describtionLabelEditing.TabIndex = 1;
-            describtionLabelEditing.Text = "Описание";
+            describtionLabelEditing.Text = "Описание :";
             // 
             // titleLabelEditing
             // 
@@ -321,19 +329,11 @@
             titleLabelEditing.AutoSize = true;
             titleLabelEditing.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             titleLabelEditing.ForeColor = Color.MidnightBlue;
-            titleLabelEditing.Location = new Point(25, 34);
+            titleLabelEditing.Location = new Point(29, 34);
             titleLabelEditing.Name = "titleLabelEditing";
-            titleLabelEditing.Size = new Size(105, 30);
+            titleLabelEditing.Size = new Size(116, 30);
             titleLabelEditing.TabIndex = 0;
-            titleLabelEditing.Text = "Название";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(88, 37);
-            label6.Name = "label6";
-            label6.Size = new Size(0, 15);
-            label6.TabIndex = 12;
+            titleLabelEditing.Text = "Название :";
             // 
             // panel1
             // 
@@ -374,29 +374,42 @@
             panel3.Controls.Add(label1);
             panel3.Location = new Point(408, 39);
             panel3.Name = "panel3";
-            panel3.Size = new Size(697, 35);
+            panel3.Size = new Size(679, 35);
             panel3.TabIndex = 15;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(330, 2);
+            label1.Location = new Point(340, 2);
             label1.Name = "label1";
             label1.Size = new Size(0, 25);
             label1.TabIndex = 0;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxSort
+            // 
+            comboBoxSort.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSort.FormattingEnabled = true;
+            comboBoxSort.Items.AddRange(new object[] { "По дате", "По категории", "По умолчанию" });
+            comboBoxSort.Location = new Point(222, 78);
+            comboBoxSort.MaxDropDownItems = 2;
+            comboBoxSort.Name = "comboBoxSort";
+            comboBoxSort.Size = new Size(109, 23);
+            comboBoxSort.TabIndex = 16;
+            comboBoxSort.SelectedIndexChanged += comboBoxSort_SelectedIndexChanged;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1142, 736);
+            ClientSize = new Size(1084, 741);
             Controls.Add(panel3);
+            Controls.Add(comboBoxSort);
             Controls.Add(panel1);
-            Controls.Add(label6);
-            Controls.Add(groupBoxEditing);
             Controls.Add(SearchBar);
             Controls.Add(EditButton);
             Controls.Add(listBoxOfConferences);
@@ -404,6 +417,7 @@
             Controls.Add(AddButton);
             Controls.Add(panel2);
             Controls.Add(IconSearch);
+            Controls.Add(groupBoxEditing);
             ForeColor = SystemColors.ControlText;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
@@ -426,7 +440,7 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.ListBox listBoxOfConferences;
         private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.Button SaveButtonEditing;
+        private System.Windows.Forms.Button ChangeButtonEditing;
         private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.PictureBox IconSearch;
         private GroupBox groupBoxEditing;
@@ -438,10 +452,8 @@
         private Label titleLabelEditing;
         private TextBox textBoxTitleEditing;
         private TextBox textBoxDescriptionEditing;
-        private TextBox textBoxTimeEditing;
         private TextBox textBoxParticipantsEditing;
         private Button CancelButtonEditing;
-        private Label label6;
         private DateTimePicker dateTimePickerEditing;
         private Panel panel1;
         private Label labelListOfConferences;
@@ -449,5 +461,7 @@
         private ComboBox comboBoxCategoryEditing;
         private Panel panel3;
         private Label label1;
+        private ComboBox comboBoxSort;
+        private MaskedTextBox maskedTextBoxTimeEditing;
     }
 }
