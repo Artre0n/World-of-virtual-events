@@ -8,9 +8,9 @@ using Science_Conferences;
 
 #nullable disable
 
-namespace Science_Conferences.Migrations
+namespace Научные_конфернции.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(Science_Conferences.ApplicationContext))]
     partial class ApplicationContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

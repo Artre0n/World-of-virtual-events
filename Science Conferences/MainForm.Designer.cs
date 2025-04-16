@@ -197,11 +197,12 @@
             maskedTextBoxTimeEditing.Size = new Size(463, 20);
             maskedTextBoxTimeEditing.TabIndex = 21;
             maskedTextBoxTimeEditing.ValidatingType = typeof(DateTime);
+            maskedTextBoxTimeEditing.Validating += maskedTextBoxTimeEditing_Validating;
             // 
             // comboBoxCategoryEditing
             // 
             comboBoxCategoryEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            comboBoxCategoryEditing.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboBoxCategoryEditing.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategoryEditing.FormattingEnabled = true;
             comboBoxCategoryEditing.ImeMode = ImeMode.NoControl;
             comboBoxCategoryEditing.Items.AddRange(new object[] { "Физика", "Химия", "Биология", "Астрология", "Математика" });
@@ -209,17 +210,17 @@
             comboBoxCategoryEditing.Name = "comboBoxCategoryEditing";
             comboBoxCategoryEditing.Size = new Size(463, 21);
             comboBoxCategoryEditing.TabIndex = 20;
+            comboBoxCategoryEditing.Validating += comboBoxCategoryEditing_Validating;
             // 
             // dateTimePickerEditing
             // 
             dateTimePickerEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             dateTimePickerEditing.Location = new Point(150, 252);
             dateTimePickerEditing.Margin = new Padding(3, 2, 3, 2);
-            dateTimePickerEditing.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
-            dateTimePickerEditing.MinDate = DateTime.Now;
             dateTimePickerEditing.Name = "dateTimePickerEditing";
             dateTimePickerEditing.Size = new Size(463, 20);
             dateTimePickerEditing.TabIndex = 13;
+            dateTimePickerEditing.Validating += dateTimePickerEditing_Validating;
             // 
             // CancelButtonEditing
             // 
@@ -265,6 +266,7 @@
             textBoxTitleEditing.Name = "textBoxTitleEditing";
             textBoxTitleEditing.Size = new Size(463, 20);
             textBoxTitleEditing.TabIndex = 8;
+            textBoxTitleEditing.Validating += textBoxTitleEditing_Validating;
             // 
             // participantsLabelEditing
             // 

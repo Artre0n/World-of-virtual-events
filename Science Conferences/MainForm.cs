@@ -1,10 +1,17 @@
+using System.Text.RegularExpressions;
+
 namespace Science_Conferences
 {
+    /// <summary>
+    /// Главная форма 
+    /// </summary>
     public partial class MainForm : Form
     {
         private ApplicationContext db;
         private Conference? selectedConference;
-
+        /// <summary>
+        /// Конструктор главной формы
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -29,7 +36,7 @@ namespace Science_Conferences
         {
             db.Conferences.Add(conference);
             db.SaveChanges();
-            LoadConferencesToListBox();
+            LoadConferencesToListBox(); // проверка тна одинаковые конфы
         }
         /// <summary>
         /// Метод, обновляющий конференцию (участвует при редактировании)
@@ -74,7 +81,7 @@ namespace Science_Conferences
         /// Метод перевода из TimeSpan в TextBox
         /// </summary>
         /// <param name="time"></param>
-        /// <returns></returns>
+        /// <returns>время в формате string</returns>
         public string GetStringFromTimeSpan(TimeSpan time)
         {
             return time.ToString();
@@ -131,6 +138,7 @@ namespace Science_Conferences
                 {
                     DeleteConference(selectedConference);
                     MessageBox.Show("Конференция удалена", "Оповещение", MessageBoxButtons.OK);
+                    selectedConference = null;
                     LoadConferencesToListBox();
                     groupBoxEditing.Visible = false;
                     label1.Text = string.Empty;
@@ -200,6 +208,9 @@ namespace Science_Conferences
                 .Where(conf => conf.Title.ToLower()
                 .Contains(SearchBar.Text.ToLower()))
                 .ToList();
+            // каждый символ в базу идет, слишком перегружает, через выборку из базы и её фильтровать но в момент может
+            // редактировать кто то
+            // нагрузочное тестирование
         }
         /// <summary>
         /// Событие при выборе элемента в comboBox
@@ -230,9 +241,81 @@ namespace Science_Conferences
         }
         #endregion
 
+        #region Обработка
+        /// <summary>
+        /// Обработка поля Название(обязательное поле)
+        /// </summary>
+        private void textBoxTitleEditing_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxTitleEditing.Text))
+            {
+                textBoxTitleEditing.Focus();
+                textBoxTitleEditing.BackColor = Color.Red;
+                e.Cancel = true;
+            }
+            else
+            {
+                textBoxTitleEditing.BackColor = Color.White;
+            }
+        }
+        /// <summary>
+        /// Обработка поля Время (обязательное поле, соотаветствие формата времени)
+        /// </summary>
+        private void maskedTextBoxTimeEditing_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string pattern = @"^(?:[01]?[0-9]|2[0-3]):[0-5][0-9](?::[0-5][0-9])?$";
+            if (!Regex.IsMatch(maskedTextBoxTimeEditing.Text, pattern))
+            {
+                MessageBox.Show("Введите корректное время в формате ЧЧ:мм", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                maskedTextBoxTimeEditing.Focus();
+                maskedTextBoxTimeEditing.BackColor = Color.Red;
+                e.Cancel = true;
+            }
+            else
+            {
+                maskedTextBoxTimeEditing.BackColor = Color.White;
+            }
+        }
+        /// <summary>
+        /// Обработка поля Категория(обязательное поле) 
+        /// </summary>
+        private void comboBoxCategoryEditing_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(comboBoxCategoryEditing.Text))
+            {
+                comboBoxCategoryEditing.Focus();
+                comboBoxCategoryEditing.BackColor = Color.Red;
+                e.Cancel = true;
+            }
+            else
+            {
+                comboBoxCategoryEditing.BackColor = Color.White;
+            }
+        }
+        /// <summary>
+        /// Обработка поля Дата(обязательное поле, нельзя поставить дату раньше сегодняшней)
+        /// </summary>
+        private void dateTimePickerEditing_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (dateTimePickerEditing.Value.Date < DateTime.Today.Date)
+            {
+                MessageBox.Show("Неккоректный ввод даты: прошедшую дату поставить нельзя", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateTimePickerEditing.Focus();
+                comboBoxCategoryEditing.BackColor = Color.Red;
+                e.Cancel = true;
+            }
+            else
+            {
+                dateTimePickerEditing.BackColor = Color.White;
+            }
+        }
+        #endregion
+
         #endregion
 
 
-        
+
     }
 }

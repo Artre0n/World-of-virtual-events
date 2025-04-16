@@ -80,9 +80,11 @@
             maskedTextBoxTimeAdding.Size = new Size(481, 20);
             maskedTextBoxTimeAdding.TabIndex = 20;
             maskedTextBoxTimeAdding.ValidatingType = typeof(DateTime);
+            maskedTextBoxTimeAdding.Validating += maskedTextBoxTimeAdding_Validating;
             // 
             // comboBoxCategoryAdding
             // 
+            comboBoxCategoryAdding.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategoryAdding.FormattingEnabled = true;
             comboBoxCategoryAdding.ImeMode = ImeMode.NoControl;
             comboBoxCategoryAdding.Items.AddRange(new object[] { "Физика", "Химия", "Биология", "Астрология", "Математика" });
@@ -126,11 +128,11 @@
             // 
             dateTimePickerAdding.Location = new Point(150, 266);
             dateTimePickerAdding.Margin = new Padding(3, 2, 3, 2);
-            dateTimePickerAdding.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
-            dateTimePickerAdding.MinDate = DateTime.Now;
             dateTimePickerAdding.Name = "dateTimePickerAdding";
             dateTimePickerAdding.Size = new Size(481, 20);
             dateTimePickerAdding.TabIndex = 13;
+            dateTimePickerAdding.Value = new DateTime(2025, 4, 17, 0, 6, 5, 383);
+            dateTimePickerAdding.Validating += dateTimePickerAdding_Validating;
             // 
             // textBoxParticipantsAdding
             // 

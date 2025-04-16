@@ -6,13 +6,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Science_Conferences;
-
 #nullable disable
 
-namespace Science_Conferences.Migrations
+namespace Научные_конфернции.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
-    [Migration("20250403174323_Initial")]
+    [DbContext(typeof(Science_Conferences.ApplicationContext))]
+    [Migration("20250416203127_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -25,7 +24,7 @@ namespace Science_Conferences.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Научные_конфернции.Conference", b =>
+            modelBuilder.Entity("Science_Conferences.Conference", b =>
                 {
                     b.Property<int>("ConferenceId")
                         .ValueGeneratedOnAdd()
