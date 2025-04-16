@@ -7,7 +7,16 @@ namespace Science_Conferences
         public DbSet<Conference> Conferences { get; set; } = null!;
         public ApplicationContext()
         {
-            Database.EnsureCreated();
+            try
+            {
+                Database.EnsureCreated();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при подключении к базе данных: {ex.Message}", "Ошибка", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(0);
+            }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

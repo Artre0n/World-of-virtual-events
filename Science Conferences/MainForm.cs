@@ -13,6 +13,9 @@ namespace Science_Conferences
 
         }
         #region Методы
+        /// <summary>
+        /// Метод, загружающий конференции в listBox
+        /// </summary>
         private void LoadConferencesToListBox()
         {
             listBoxOfConferences.DataSource = db.Conferences.ToList();
@@ -28,11 +31,19 @@ namespace Science_Conferences
             db.SaveChanges();
             LoadConferencesToListBox();
         }
+        /// <summary>
+        /// Метод, обновляющий конференцию (участвует при редактировании)
+        /// </summary>
+        /// <param name="conference">конференция</param>
         private void UpdateConference(Conference conference)
         {
             db.Conferences.Update(conference);
             db.SaveChanges();
         }
+        /// <summary>
+        /// Метод, удаляющий конференцию
+        /// </summary>
+        /// <param name="conference">конференция</param>
         private void DeleteConference(Conference conference)
         {
             db.Conferences.Remove(conference);
@@ -50,14 +61,14 @@ namespace Science_Conferences
             {
                 return result;
             }
-            else
-            {
-                MessageBox.Show("Введите корректное время в формате ЧЧ:мм:сс", "Ошибка",
+
+            MessageBox.Show("Введите корректное время в формате ЧЧ:мм", "Ошибка",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox.Focus();
-                textBox.SelectAll();
-                throw new FormatException("Некорректный формат времени");
-            }
+
+            textBox.Focus();
+            textBox.SelectAll();
+
+            return TimeSpan.Zero;
         }
         /// <summary>
         /// Метод перевода из TimeSpan в TextBox
@@ -70,7 +81,11 @@ namespace Science_Conferences
         }
         #endregion
         #region Методы для событий
+
         #region ListOfConferences
+        /// <summary>
+        /// Событие при выборе элемента в ListBox
+        /// </summary>
         private void listBoxOfConferences_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedConference = (Conference?)listBoxOfConferences.SelectedItem;
@@ -88,57 +103,97 @@ namespace Science_Conferences
                 groupBoxEditing.Visible = true;
                 groupBoxEditing.Enabled = false;
             }
-
-        }
-        #endregion
-        #region Добавление
-        private void AddButton_Click(object sender, EventArgs e) => new AddForm(this).ShowDialog();
-
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            if (selectedConference != null)
+            else//Без else всегда приходит сюда
             {
-                DeleteConference(selectedConference);
-                MessageBox.Show("Конференция удалена", "Оповещение", MessageBoxButtons.OK);
-                LoadConferencesToListBox();
+
+                label1.Text = String.Empty;
+
                 groupBoxEditing.Visible = false;
-                label1.Text = string.Empty;
+                groupBoxEditing.Enabled = false;
             }
         }
         #endregion
+
+        #region Добавление
+        /// <summary>
+        /// Событие при клике на кнопку добавить
+        /// </summary>
+        private void AddButton_Click(object sender, EventArgs e) => new AddForm(this).ShowDialog();
+        /// <summary>
+        /// Событие при клике на кнопку удалить
+        /// </summary>
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (selectedConference != null && MessageBox.Show("Вы хотите удалить эту конференцию?", "Подтверждение",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    DeleteConference(selectedConference);
+                    MessageBox.Show("Конференция удалена", "Оповещение", MessageBoxButtons.OK);
+                    LoadConferencesToListBox();
+                    groupBoxEditing.Visible = false;
+                    label1.Text = string.Empty;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении: {ex.Message}", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        #endregion
+
         #region Редактирование
+        /// <summary>
+        /// Событие при клике на кнопку редактировать
+        /// </summary>
         private void EditButton_Click(object sender, EventArgs e)
         {
             groupBoxEditing.Enabled = true;
             groupBoxEditing.Visible = true;
         }
-
+        /// <summary>
+        /// Событие при клике на кнопку изменить
+        /// </summary>
         private void ChangeButton_Click(object sender, EventArgs e)
         {
             if (selectedConference != null)
             {
-                selectedConference.Title = textBoxTitleEditing.Text;
-                selectedConference.Description = textBoxDescriptionEditing.Text;
-                selectedConference.Date = dateTimePickerEditing.Value;
-                selectedConference.Time = GetTimeSpanFromTextBox(maskedTextBoxTimeEditing);
-                selectedConference.Category = comboBoxCategoryEditing.Text;
-                selectedConference.Participants = textBoxParticipantsEditing.Text;
-                UpdateConference(selectedConference);
-                MessageBox.Show("Конференция обновлена", "Оповещение", MessageBoxButtons.OK);
-                groupBoxEditing.Enabled = false;
-                LoadConferencesToListBox();
-
+                try
+                {
+                    selectedConference.Title = textBoxTitleEditing.Text;
+                    selectedConference.Description = textBoxDescriptionEditing.Text;
+                    selectedConference.Date = dateTimePickerEditing.Value;
+                    selectedConference.Time = GetTimeSpanFromTextBox(maskedTextBoxTimeEditing);
+                    selectedConference.Category = comboBoxCategoryEditing.Text;
+                    selectedConference.Participants = textBoxParticipantsEditing.Text;
+                    UpdateConference(selectedConference);
+                    MessageBox.Show("Конференция обновлена", "Оповещение", MessageBoxButtons.OK);
+                    groupBoxEditing.Enabled = false;
+                    LoadConferencesToListBox();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-
+        /// <summary>
+        /// Событие при клике на кнопку отмена
+        /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             groupBoxEditing.Enabled = false;
             groupBoxEditing.Visible = false;
         }
         #endregion
-        #endregion
 
+        #region Сортировка
+        /// <summary>
+        /// Событие при написании текста в SearchBar
+        /// </summary>
         private void SearchBar_TextChanged(object sender, EventArgs e)
         {
             listBoxOfConferences.DataSource = db.Conferences
@@ -146,7 +201,9 @@ namespace Science_Conferences
                 .Contains(SearchBar.Text.ToLower()))
                 .ToList();
         }
-
+        /// <summary>
+        /// Событие при выборе элемента в comboBox
+        /// </summary>
         private void comboBoxSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxSort.SelectedIndex)
@@ -171,5 +228,11 @@ namespace Science_Conferences
                     break;
             }
         }
+        #endregion
+
+        #endregion
+
+
+        
     }
 }

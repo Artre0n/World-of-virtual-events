@@ -215,6 +215,8 @@
             dateTimePickerEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             dateTimePickerEditing.Location = new Point(150, 252);
             dateTimePickerEditing.Margin = new Padding(3, 2, 3, 2);
+            dateTimePickerEditing.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
+            dateTimePickerEditing.MinDate = DateTime.Now;
             dateTimePickerEditing.Name = "dateTimePickerEditing";
             dateTimePickerEditing.Size = new Size(463, 20);
             dateTimePickerEditing.TabIndex = 13;
@@ -259,6 +261,7 @@
             // 
             textBoxTitleEditing.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxTitleEditing.Location = new Point(150, 44);
+            textBoxTitleEditing.MaxLength = 78;
             textBoxTitleEditing.Name = "textBoxTitleEditing";
             textBoxTitleEditing.Size = new Size(463, 20);
             textBoxTitleEditing.TabIndex = 8;

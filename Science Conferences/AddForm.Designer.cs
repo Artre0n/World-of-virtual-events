@@ -90,6 +90,7 @@
             comboBoxCategoryAdding.Name = "comboBoxCategoryAdding";
             comboBoxCategoryAdding.Size = new Size(481, 21);
             comboBoxCategoryAdding.TabIndex = 19;
+            comboBoxCategoryAdding.Validating += comboBoxCategoryAdding_Validating;
             // 
             // CancelButtonAdding
             // 
@@ -125,6 +126,8 @@
             // 
             dateTimePickerAdding.Location = new Point(150, 266);
             dateTimePickerAdding.Margin = new Padding(3, 2, 3, 2);
+            dateTimePickerAdding.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
+            dateTimePickerAdding.MinDate = DateTime.Now;
             dateTimePickerAdding.Name = "dateTimePickerAdding";
             dateTimePickerAdding.Size = new Size(481, 20);
             dateTimePickerAdding.TabIndex = 13;
@@ -132,6 +135,7 @@
             // textBoxParticipantsAdding
             // 
             textBoxParticipantsAdding.Location = new Point(150, 414);
+            textBoxParticipantsAdding.MaxLength = 531;
             textBoxParticipantsAdding.Multiline = true;
             textBoxParticipantsAdding.Name = "textBoxParticipantsAdding";
             textBoxParticipantsAdding.Size = new Size(481, 127);
@@ -140,6 +144,7 @@
             // textBoxDescriptionAdding
             // 
             textBoxDescriptionAdding.Location = new Point(150, 115);
+            textBoxDescriptionAdding.MaxLength = 472;
             textBoxDescriptionAdding.Multiline = true;
             textBoxDescriptionAdding.Name = "textBoxDescriptionAdding";
             textBoxDescriptionAdding.Size = new Size(481, 127);
@@ -148,9 +153,11 @@
             // textBoxTitleAdding
             // 
             textBoxTitleAdding.Location = new Point(150, 44);
+            textBoxTitleAdding.MaxLength = 78;
             textBoxTitleAdding.Name = "textBoxTitleAdding";
             textBoxTitleAdding.Size = new Size(481, 20);
             textBoxTitleAdding.TabIndex = 8;
+            textBoxTitleAdding.Validating += textBoxTitleAdding_Validating;
             // 
             // participantsLabelAdding
             // 
