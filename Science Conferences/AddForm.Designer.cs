@@ -49,6 +49,7 @@
             // 
             // groupBoxAdding
             // 
+            groupBoxAdding.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxAdding.BackColor = SystemColors.GradientActiveCaption;
             groupBoxAdding.Controls.Add(maskedTextBoxTimeAdding);
             groupBoxAdding.Controls.Add(comboBoxCategoryAdding);
@@ -65,19 +66,22 @@
             groupBoxAdding.Controls.Add(decriptionLabelAdding);
             groupBoxAdding.Controls.Add(titleLabelAdding);
             groupBoxAdding.Font = new Font("Microsoft Sans Serif", 8.25F);
-            groupBoxAdding.Location = new Point(115, 12);
+            groupBoxAdding.Location = new Point(121, 19);
+            groupBoxAdding.Margin = new Padding(3, 4, 3, 4);
             groupBoxAdding.Name = "groupBoxAdding";
-            groupBoxAdding.Size = new Size(723, 631);
+            groupBoxAdding.Padding = new Padding(3, 4, 3, 4);
+            groupBoxAdding.Size = new Size(826, 841);
             groupBoxAdding.TabIndex = 12;
             groupBoxAdding.TabStop = false;
             // 
             // maskedTextBoxTimeAdding
             // 
             maskedTextBoxTimeAdding.BorderStyle = BorderStyle.FixedSingle;
-            maskedTextBoxTimeAdding.Location = new Point(150, 319);
+            maskedTextBoxTimeAdding.Location = new Point(181, 425);
+            maskedTextBoxTimeAdding.Margin = new Padding(3, 4, 3, 4);
             maskedTextBoxTimeAdding.Mask = "00:00";
             maskedTextBoxTimeAdding.Name = "maskedTextBoxTimeAdding";
-            maskedTextBoxTimeAdding.Size = new Size(481, 20);
+            maskedTextBoxTimeAdding.Size = new Size(549, 23);
             maskedTextBoxTimeAdding.TabIndex = 20;
             maskedTextBoxTimeAdding.ValidatingType = typeof(DateTime);
             maskedTextBoxTimeAdding.Validating += maskedTextBoxTimeAdding_Validating;
@@ -88,9 +92,10 @@
             comboBoxCategoryAdding.FormattingEnabled = true;
             comboBoxCategoryAdding.ImeMode = ImeMode.NoControl;
             comboBoxCategoryAdding.Items.AddRange(new object[] { "Физика", "Химия", "Биология", "Астрология", "Математика", "Без категории" });
-            comboBoxCategoryAdding.Location = new Point(150, 366);
+            comboBoxCategoryAdding.Location = new Point(181, 487);
+            comboBoxCategoryAdding.Margin = new Padding(3, 4, 3, 4);
             comboBoxCategoryAdding.Name = "comboBoxCategoryAdding";
-            comboBoxCategoryAdding.Size = new Size(481, 21);
+            comboBoxCategoryAdding.Size = new Size(549, 25);
             comboBoxCategoryAdding.TabIndex = 19;
             comboBoxCategoryAdding.Validating += comboBoxCategoryAdding_Validating;
             // 
@@ -100,10 +105,10 @@
             CancelButtonAdding.BackColor = Color.CornflowerBlue;
             CancelButtonAdding.FlatStyle = FlatStyle.Popup;
             CancelButtonAdding.ForeColor = SystemColors.ControlLightLight;
-            CancelButtonAdding.Location = new Point(534, 579);
-            CancelButtonAdding.Margin = new Padding(4, 3, 4, 3);
+            CancelButtonAdding.Location = new Point(610, 772);
+            CancelButtonAdding.Margin = new Padding(5, 4, 5, 4);
             CancelButtonAdding.Name = "CancelButtonAdding";
-            CancelButtonAdding.Size = new Size(156, 38);
+            CancelButtonAdding.Size = new Size(178, 51);
             CancelButtonAdding.TabIndex = 18;
             CancelButtonAdding.Text = "Отмена";
             CancelButtonAdding.UseVisualStyleBackColor = false;
@@ -113,13 +118,12 @@
             // 
             SaveButtonAdding.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             SaveButtonAdding.BackColor = Color.CornflowerBlue;
-            SaveButtonAdding.Enabled = false;
             SaveButtonAdding.FlatStyle = FlatStyle.Popup;
             SaveButtonAdding.ForeColor = SystemColors.ControlLightLight;
-            SaveButtonAdding.Location = new Point(370, 579);
-            SaveButtonAdding.Margin = new Padding(4, 3, 4, 3);
+            SaveButtonAdding.Location = new Point(423, 772);
+            SaveButtonAdding.Margin = new Padding(5, 4, 5, 4);
             SaveButtonAdding.Name = "SaveButtonAdding";
-            SaveButtonAdding.Size = new Size(156, 38);
+            SaveButtonAdding.Size = new Size(178, 51);
             SaveButtonAdding.TabIndex = 17;
             SaveButtonAdding.Text = "Сохранить";
             SaveButtonAdding.UseVisualStyleBackColor = false;
@@ -127,38 +131,40 @@
             // 
             // dateTimePickerAdding
             // 
-            dateTimePickerAdding.Location = new Point(150, 266);
-            dateTimePickerAdding.Margin = new Padding(3, 2, 3, 2);
+            dateTimePickerAdding.Location = new Point(181, 355);
             dateTimePickerAdding.Name = "dateTimePickerAdding";
-            dateTimePickerAdding.Size = new Size(481, 20);
+            dateTimePickerAdding.Size = new Size(549, 23);
             dateTimePickerAdding.TabIndex = 13;
             dateTimePickerAdding.Value = new DateTime(2025, 4, 17, 0, 6, 5, 383);
             dateTimePickerAdding.Validating += dateTimePickerAdding_Validating;
             // 
             // textBoxParticipantsAdding
             // 
-            textBoxParticipantsAdding.Location = new Point(150, 414);
+            textBoxParticipantsAdding.Location = new Point(181, 551);
+            textBoxParticipantsAdding.Margin = new Padding(3, 4, 3, 4);
             textBoxParticipantsAdding.MaxLength = 531;
             textBoxParticipantsAdding.Multiline = true;
             textBoxParticipantsAdding.Name = "textBoxParticipantsAdding";
-            textBoxParticipantsAdding.Size = new Size(481, 127);
+            textBoxParticipantsAdding.Size = new Size(549, 168);
             textBoxParticipantsAdding.TabIndex = 15;
             // 
             // textBoxDescriptionAdding
             // 
-            textBoxDescriptionAdding.Location = new Point(150, 115);
+            textBoxDescriptionAdding.Location = new Point(181, 153);
+            textBoxDescriptionAdding.Margin = new Padding(3, 4, 3, 4);
             textBoxDescriptionAdding.MaxLength = 472;
             textBoxDescriptionAdding.Multiline = true;
             textBoxDescriptionAdding.Name = "textBoxDescriptionAdding";
-            textBoxDescriptionAdding.Size = new Size(481, 127);
+            textBoxDescriptionAdding.Size = new Size(549, 168);
             textBoxDescriptionAdding.TabIndex = 9;
             // 
             // textBoxTitleAdding
             // 
-            textBoxTitleAdding.Location = new Point(150, 44);
+            textBoxTitleAdding.Location = new Point(181, 57);
+            textBoxTitleAdding.Margin = new Padding(3, 4, 3, 4);
             textBoxTitleAdding.MaxLength = 78;
             textBoxTitleAdding.Name = "textBoxTitleAdding";
-            textBoxTitleAdding.Size = new Size(481, 20);
+            textBoxTitleAdding.Size = new Size(549, 23);
             textBoxTitleAdding.TabIndex = 8;
             textBoxTitleAdding.Validating += textBoxTitleAdding_Validating;
             // 
@@ -167,9 +173,9 @@
             participantsLabelAdding.AutoSize = true;
             participantsLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             participantsLabelAdding.ForeColor = Color.MidnightBlue;
-            participantsLabelAdding.Location = new Point(29, 404);
+            participantsLabelAdding.Location = new Point(33, 539);
             participantsLabelAdding.Name = "participantsLabelAdding";
-            participantsLabelAdding.Size = new Size(118, 30);
+            participantsLabelAdding.Size = new Size(151, 37);
             participantsLabelAdding.TabIndex = 7;
             participantsLabelAdding.Text = "Участники:";
             // 
@@ -178,9 +184,9 @@
             categorylabelAdding.AutoSize = true;
             categorylabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             categorylabelAdding.ForeColor = Color.MidnightBlue;
-            categorylabelAdding.Location = new Point(29, 356);
+            categorylabelAdding.Location = new Point(33, 475);
             categorylabelAdding.Name = "categorylabelAdding";
-            categorylabelAdding.Size = new Size(116, 30);
+            categorylabelAdding.Size = new Size(150, 37);
             categorylabelAdding.TabIndex = 4;
             categorylabelAdding.Text = "Категория:";
             // 
@@ -189,9 +195,9 @@
             timeLabelAdding.AutoSize = true;
             timeLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             timeLabelAdding.ForeColor = Color.MidnightBlue;
-            timeLabelAdding.Location = new Point(29, 308);
+            timeLabelAdding.Location = new Point(33, 411);
             timeLabelAdding.Name = "timeLabelAdding";
-            timeLabelAdding.Size = new Size(79, 30);
+            timeLabelAdding.Size = new Size(101, 37);
             timeLabelAdding.TabIndex = 3;
             timeLabelAdding.Text = "Время:";
             // 
@@ -200,9 +206,9 @@
             dateLabelAdding.AutoSize = true;
             dateLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             dateLabelAdding.ForeColor = Color.MidnightBlue;
-            dateLabelAdding.Location = new Point(29, 259);
+            dateLabelAdding.Location = new Point(33, 345);
             dateLabelAdding.Name = "dateLabelAdding";
-            dateLabelAdding.Size = new Size(64, 30);
+            dateLabelAdding.Size = new Size(81, 37);
             dateLabelAdding.TabIndex = 2;
             dateLabelAdding.Text = "Дата:";
             // 
@@ -211,9 +217,9 @@
             decriptionLabelAdding.AutoSize = true;
             decriptionLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             decriptionLabelAdding.ForeColor = Color.MidnightBlue;
-            decriptionLabelAdding.Location = new Point(29, 115);
+            decriptionLabelAdding.Location = new Point(33, 153);
             decriptionLabelAdding.Name = "decriptionLabelAdding";
-            decriptionLabelAdding.Size = new Size(114, 30);
+            decriptionLabelAdding.Size = new Size(147, 37);
             decriptionLabelAdding.TabIndex = 1;
             decriptionLabelAdding.Text = "Описание:";
             // 
@@ -222,20 +228,21 @@
             titleLabelAdding.AutoSize = true;
             titleLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             titleLabelAdding.ForeColor = Color.MidnightBlue;
-            titleLabelAdding.Location = new Point(29, 34);
+            titleLabelAdding.Location = new Point(33, 45);
             titleLabelAdding.Name = "titleLabelAdding";
-            titleLabelAdding.Size = new Size(110, 30);
+            titleLabelAdding.Size = new Size(142, 37);
             titleLabelAdding.TabIndex = 0;
             titleLabelAdding.Text = "Название:";
             // 
             // AddForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
-            ClientSize = new Size(924, 655);
+            ClientSize = new Size(1056, 873);
             Controls.Add(groupBoxAdding);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AddForm";
             Text = "Редактор";
             groupBoxAdding.ResumeLayout(false);

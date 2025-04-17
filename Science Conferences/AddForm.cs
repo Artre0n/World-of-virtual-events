@@ -24,8 +24,10 @@ namespace Science_Conferences
         /// </summary>
         private void SaveButtonAdding_Click(object sender, EventArgs e)
         {
-            //if (SaveButtonIsEnable(marks))
-            
+            if (!string.IsNullOrEmpty(textBoxTitleAdding.Text) && 
+                maskedTextBoxTimeAdding.Text.Replace(":", "").Trim('_').Length != 0 && 
+                !string.IsNullOrEmpty(comboBoxCategoryAdding.Text))
+            {
                 try
                 {
                     var newConference = new Conference
@@ -48,11 +50,11 @@ namespace Science_Conferences
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //Константы в файлы ресурсов
                 }
-            
-            //else
-            //{
-            //    MessageBox.Show("Конференция добавлена", "Оповещение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Заполните обязательные поля", "Оповещение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         /// <summary>
         /// Событие при клике на кнопку отмена

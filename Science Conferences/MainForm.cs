@@ -1,3 +1,4 @@
+using ClosedXML.Excel;
 using System.Text.RegularExpressions;
 
 namespace Science_Conferences
@@ -39,7 +40,7 @@ namespace Science_Conferences
         {
             db.Conferences.Add(conference);
             db.SaveChanges();
-            LoadConferencesToListBox(); // проверка тна одинаковые конфы
+            LoadConferencesToListBox();
         }
 
         /// <summary>
@@ -67,8 +68,7 @@ namespace Science_Conferences
         /// </summary>
         /// <param name="textBox"></param>
         /// <returns></returns>
-        /// <exception cref="FormatException"></exception>
-        public TimeSpan GetTimeSpanFromTextBox(MaskedTextBox textBox) // Переделать без исключения
+        public TimeSpan GetTimeSpanFromTextBox(MaskedTextBox textBox)
         {
             if (TimeSpan.TryParse(textBox.Text, out TimeSpan result))
             {
@@ -327,7 +327,7 @@ namespace Science_Conferences
         {
             if (dateTimePickerEditing.Value.Date < DateTime.Today.Date)
             {
-                MessageBox.Show("Неккоректный ввод даты: прошедшую дату поставить нельзя", "Ошибка",
+                MessageBox.Show("Некорректный ввод даты: прошедшую дату поставить нельзя", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dateTimePickerEditing.Focus();
                 comboBoxCategoryEditing.BackColor = System.Drawing.Color.Red;
@@ -340,19 +340,58 @@ namespace Science_Conferences
         }
 
         #endregion
+
         #region Генерация отчета
-        
-        
+        public void GenerateReport()
+        {
+            try
+            {
+                var conferences = db.Conferences.ToList();
 
+                var report = new XLWorkbook();
+                var worksheet = report.Worksheets.Add("Conferences");
 
+                worksheet.Cell(1, 1).Value = "Id";
+                worksheet.Cell(1, 2).Value = "Title";
+                worksheet.Cell(1, 3).Value = "Description";
+                worksheet.Cell(1, 4).Value = "Date";
+                worksheet.Cell(1, 5).Value = "Time";
+                worksheet.Cell(1, 6).Value = "Category";
+                worksheet.Cell(1, 7).Value = "Participants";
+                
+
+                int row = 2;
+                foreach (var conference in conferences)
+                {
+                    worksheet.Cell(row, 1).Value = conference.ConferenceId;
+                    worksheet.Cell(row, 2).Value = conference.Title;
+                    worksheet.Cell(row, 3).Value = conference.Description;
+                    worksheet.Cell(row, 4).Value = conference.Date.ToShortDateString();
+                    worksheet.Cell(row, 5).Value = conference.Time;
+                    worksheet.Cell(row, 6).Value = conference.Category;
+                    worksheet.Cell(row, 7).Value = conference.Participants;
+                    row++;
+                }
+
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string filePath = Path.Combine(desktopPath, $"Конференции_{DateTime.Now:dd.MM.yyyy}.xlsx");
+
+                report.SaveAs(filePath);
+
+                MessageBox.Show($"Отчёт {filePath} сохранён", "Оповещение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при создании отчёта: {ex.Message}");            
+            }
+        }
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GenerateReport();
+        }
         #endregion
         #endregion
 
-
-
-
-
-
-        
     }
 }
