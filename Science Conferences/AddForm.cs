@@ -35,7 +35,7 @@ namespace Science_Conferences
                         Title = textBoxTitleAdding.Text,
                         Description = textBoxDescriptionAdding.Text,
                         Date = dateTimePickerAdding.Value,
-                        Time = mainForm.GetTimeSpanFromTextBox(maskedTextBoxTimeAdding),
+                        Time = mainForm.ConvertTextBoxToTimeSpan(maskedTextBoxTimeAdding),
                         Category = comboBoxCategoryAdding.Text,
                         Participants = textBoxParticipantsAdding.Text
                     };
@@ -53,7 +53,8 @@ namespace Science_Conferences
             }
             else
             {
-                MessageBox.Show("Заполните обязательные поля", "Оповещение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Заполните обязательные поля", "Оповещение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>

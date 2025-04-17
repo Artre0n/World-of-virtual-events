@@ -76,6 +76,7 @@
             // 
             // maskedTextBoxTimeAdding
             // 
+            maskedTextBoxTimeAdding.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             maskedTextBoxTimeAdding.BorderStyle = BorderStyle.FixedSingle;
             maskedTextBoxTimeAdding.Location = new Point(181, 425);
             maskedTextBoxTimeAdding.Margin = new Padding(3, 4, 3, 4);
@@ -88,6 +89,7 @@
             // 
             // comboBoxCategoryAdding
             // 
+            comboBoxCategoryAdding.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxCategoryAdding.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategoryAdding.FormattingEnabled = true;
             comboBoxCategoryAdding.ImeMode = ImeMode.NoControl;
@@ -101,7 +103,7 @@
             // 
             // CancelButtonAdding
             // 
-            CancelButtonAdding.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            CancelButtonAdding.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CancelButtonAdding.BackColor = Color.CornflowerBlue;
             CancelButtonAdding.FlatStyle = FlatStyle.Popup;
             CancelButtonAdding.ForeColor = SystemColors.ControlLightLight;
@@ -116,7 +118,7 @@
             // 
             // SaveButtonAdding
             // 
-            SaveButtonAdding.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SaveButtonAdding.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             SaveButtonAdding.BackColor = Color.CornflowerBlue;
             SaveButtonAdding.FlatStyle = FlatStyle.Popup;
             SaveButtonAdding.ForeColor = SystemColors.ControlLightLight;
@@ -131,6 +133,7 @@
             // 
             // dateTimePickerAdding
             // 
+            dateTimePickerAdding.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dateTimePickerAdding.Location = new Point(181, 355);
             dateTimePickerAdding.Name = "dateTimePickerAdding";
             dateTimePickerAdding.Size = new Size(549, 23);
@@ -140,6 +143,7 @@
             // 
             // textBoxParticipantsAdding
             // 
+            textBoxParticipantsAdding.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxParticipantsAdding.Location = new Point(181, 551);
             textBoxParticipantsAdding.Margin = new Padding(3, 4, 3, 4);
             textBoxParticipantsAdding.MaxLength = 531;
@@ -150,6 +154,7 @@
             // 
             // textBoxDescriptionAdding
             // 
+            textBoxDescriptionAdding.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxDescriptionAdding.Location = new Point(181, 153);
             textBoxDescriptionAdding.Margin = new Padding(3, 4, 3, 4);
             textBoxDescriptionAdding.MaxLength = 472;
@@ -160,6 +165,7 @@
             // 
             // textBoxTitleAdding
             // 
+            textBoxTitleAdding.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxTitleAdding.Location = new Point(181, 57);
             textBoxTitleAdding.Margin = new Padding(3, 4, 3, 4);
             textBoxTitleAdding.MaxLength = 78;

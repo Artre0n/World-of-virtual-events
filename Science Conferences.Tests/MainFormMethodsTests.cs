@@ -10,7 +10,7 @@ namespace Science_Conferences.Tests
 
 
             // Act
-            string strTime = mainForm.GetStringFromTimeSpan(new TimeSpan(12, 12, 33));
+            string strTime = mainForm.ConvertTimeSpanToString(new TimeSpan(12, 12, 33));
 
             // Assert
             Assert.Equal(strTime, "12:12:33");
@@ -24,7 +24,7 @@ namespace Science_Conferences.Tests
 
 
             // Act
-            string strTime = mainForm.GetStringFromTimeSpan(new TimeSpan(11, 11, 33));
+            string strTime = mainForm.ConvertTimeSpanToString(new TimeSpan(11, 11, 33));
 
             // Assert
             Assert.NotEqual(strTime, "12:12:33");

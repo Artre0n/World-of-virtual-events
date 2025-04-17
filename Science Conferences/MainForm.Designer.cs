@@ -394,11 +394,11 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(377, 3);
+            label1.Location = new Point(325, 3);
             label1.Name = "label1";
             label1.Size = new Size(0, 32);
             label1.TabIndex = 0;

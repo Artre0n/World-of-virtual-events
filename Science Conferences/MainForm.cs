@@ -20,7 +20,6 @@ namespace Science_Conferences
             db = new ApplicationContext();
             LoadConferencesToListBox();
         }
-        // попробовать сделать проверку в кнопке сохранить
         #region Методы
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace Science_Conferences
         /// </summary>
         /// <param name="textBox"></param>
         /// <returns></returns>
-        public TimeSpan GetTimeSpanFromTextBox(MaskedTextBox textBox)
+        public TimeSpan ConvertTextBoxToTimeSpan(MaskedTextBox textBox)
         {
             if (TimeSpan.TryParse(textBox.Text, out TimeSpan result))
             {
@@ -89,7 +88,7 @@ namespace Science_Conferences
         /// </summary>
         /// <param name="time"></param>
         /// <returns>время в формате string</returns>
-        public string GetStringFromTimeSpan(TimeSpan time)
+        public string ConvertTimeSpanToString(TimeSpan time)
         {
             return time.ToString();
         }
@@ -111,7 +110,7 @@ namespace Science_Conferences
                 textBoxTitleEditing.Text = selectedConference.Title;
                 textBoxDescriptionEditing.Text = selectedConference.Description;
                 dateTimePickerEditing.Value = selectedConference.Date;
-                maskedTextBoxTimeEditing.Text = GetStringFromTimeSpan(selectedConference.Time);
+                maskedTextBoxTimeEditing.Text = ConvertTimeSpanToString(selectedConference.Time);
                 comboBoxCategoryEditing.SelectedItem = selectedConference.Category;
                 textBoxParticipantsEditing.Text = selectedConference.Participants;
 
@@ -184,14 +183,16 @@ namespace Science_Conferences
         /// </summary>
         private void ChangeButton_Click(object sender, EventArgs e)
         {
-            if (selectedConference != null)
+            if (!string.IsNullOrEmpty(textBoxTitleEditing.Text) &&
+                maskedTextBoxTimeEditing.Text.Replace(":", "").Trim('_').Length != 0 &&
+                !string.IsNullOrEmpty(comboBoxCategoryEditing.Text))
             {
                 try
                 {
                     selectedConference.Title = textBoxTitleEditing.Text;
                     selectedConference.Description = textBoxDescriptionEditing.Text;
                     selectedConference.Date = dateTimePickerEditing.Value;
-                    selectedConference.Time = GetTimeSpanFromTextBox(maskedTextBoxTimeEditing);
+                    selectedConference.Time = ConvertTextBoxToTimeSpan(maskedTextBoxTimeEditing);
                     selectedConference.Category = comboBoxCategoryEditing.Text;
                     selectedConference.Participants = textBoxParticipantsEditing.Text;
                     UpdateConference(selectedConference);
@@ -204,6 +205,11 @@ namespace Science_Conferences
                     MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Заполните обязательные поля", "Оповещение", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -342,7 +348,11 @@ namespace Science_Conferences
         #endregion
 
         #region Генерация отчета
-        public void GenerateReport()
+
+        /// <summary>
+        /// Метод, генерирующий отчет
+        /// </summary>
+        private void GenerateReport()
         {
             try
             {
@@ -386,6 +396,9 @@ namespace Science_Conferences
                 MessageBox.Show($"Ошибка при создании отчёта: {ex.Message}");            
             }
         }
+        /// <summary>
+        /// Событие при закрытии приложения
+        /// </summary>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             GenerateReport();
