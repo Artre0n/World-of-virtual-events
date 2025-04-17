@@ -9,6 +9,7 @@ namespace Science_Conferences
     {
         private ApplicationContext db;
         private Conference? selectedConference;
+
         /// <summary>
         /// Конструктор главной формы
         /// </summary>
@@ -17,9 +18,10 @@ namespace Science_Conferences
             InitializeComponent();
             db = new ApplicationContext();
             LoadConferencesToListBox();
-
         }
+        // попробовать сделать проверку в кнопке сохранить
         #region Методы
+
         /// <summary>
         /// Метод, загружающий конференции в listBox
         /// </summary>
@@ -28,6 +30,7 @@ namespace Science_Conferences
             listBoxOfConferences.DataSource = db.Conferences.ToList();
             listBoxOfConferences.DisplayMember = "Title";
         }
+
         /// <summary>
         /// Метод добавления конференции в бд
         /// </summary>
@@ -38,6 +41,7 @@ namespace Science_Conferences
             db.SaveChanges();
             LoadConferencesToListBox(); // проверка тна одинаковые конфы
         }
+
         /// <summary>
         /// Метод, обновляющий конференцию (участвует при редактировании)
         /// </summary>
@@ -47,6 +51,7 @@ namespace Science_Conferences
             db.Conferences.Update(conference);
             db.SaveChanges();
         }
+
         /// <summary>
         /// Метод, удаляющий конференцию
         /// </summary>
@@ -56,6 +61,7 @@ namespace Science_Conferences
             db.Conferences.Remove(conference);
             db.SaveChanges();
         }
+
         /// <summary>
         /// Метод перевода из TextBox в TimeSpan
         /// </summary>
@@ -77,6 +83,7 @@ namespace Science_Conferences
 
             return TimeSpan.Zero;
         }
+
         /// <summary>
         /// Метод перевода из TimeSpan в TextBox
         /// </summary>
@@ -86,10 +93,13 @@ namespace Science_Conferences
         {
             return time.ToString();
         }
-        #endregion
+
+        #endregion 
+
         #region Методы для событий
 
         #region ListOfConferences
+
         /// <summary>
         /// Событие при выборе элемента в ListBox
         /// </summary>
@@ -110,7 +120,7 @@ namespace Science_Conferences
                 groupBoxEditing.Visible = true;
                 groupBoxEditing.Enabled = false;
             }
-            else//Без else всегда приходит сюда
+            else
             {
 
                 label1.Text = String.Empty;
@@ -119,13 +129,16 @@ namespace Science_Conferences
                 groupBoxEditing.Enabled = false;
             }
         }
+
         #endregion
 
         #region Добавление
+
         /// <summary>
         /// Событие при клике на кнопку добавить
         /// </summary>
         private void AddButton_Click(object sender, EventArgs e) => new AddForm(this).ShowDialog();
+
         /// <summary>
         /// Событие при клике на кнопку удалить
         /// </summary>
@@ -153,14 +166,19 @@ namespace Science_Conferences
         #endregion
 
         #region Редактирование
+
         /// <summary>
         /// Событие при клике на кнопку редактировать
         /// </summary>
         private void EditButton_Click(object sender, EventArgs e)
         {
-            groupBoxEditing.Enabled = true;
-            groupBoxEditing.Visible = true;
+            if (selectedConference != null)
+            {
+                groupBoxEditing.Enabled = true;
+                groupBoxEditing.Visible = true;
+            }
         }
+
         /// <summary>
         /// Событие при клике на кнопку изменить
         /// </summary>
@@ -188,6 +206,7 @@ namespace Science_Conferences
                 }
             }
         }
+
         /// <summary>
         /// Событие при клике на кнопку отмена
         /// </summary>
@@ -196,9 +215,11 @@ namespace Science_Conferences
             groupBoxEditing.Enabled = false;
             groupBoxEditing.Visible = false;
         }
+
         #endregion
 
         #region Сортировка
+
         /// <summary>
         /// Событие при написании текста в SearchBar
         /// </summary>
@@ -212,6 +233,7 @@ namespace Science_Conferences
             // редактировать кто то
             // нагрузочное тестирование
         }
+
         /// <summary>
         /// Событие при выборе элемента в comboBox
         /// </summary>
@@ -239,9 +261,11 @@ namespace Science_Conferences
                     break;
             }
         }
+
         #endregion
 
         #region Обработка
+
         /// <summary>
         /// Обработка поля Название(обязательное поле)
         /// </summary>
@@ -250,14 +274,15 @@ namespace Science_Conferences
             if (string.IsNullOrWhiteSpace(textBoxTitleEditing.Text))
             {
                 textBoxTitleEditing.Focus();
-                textBoxTitleEditing.BackColor = Color.Red;
+                textBoxTitleEditing.BackColor = System.Drawing.Color.Red;
                 e.Cancel = true;
             }
             else
             {
-                textBoxTitleEditing.BackColor = Color.White;
+                textBoxTitleEditing.BackColor = System.Drawing.Color.White;
             }
         }
+
         /// <summary>
         /// Обработка поля Время (обязательное поле, соотаветствие формата времени)
         /// </summary>
@@ -269,14 +294,15 @@ namespace Science_Conferences
                 MessageBox.Show("Введите корректное время в формате ЧЧ:мм", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 maskedTextBoxTimeEditing.Focus();
-                maskedTextBoxTimeEditing.BackColor = Color.Red;
+                maskedTextBoxTimeEditing.BackColor = System.Drawing.Color.Red;
                 e.Cancel = true;
             }
             else
             {
-                maskedTextBoxTimeEditing.BackColor = Color.White;
+                maskedTextBoxTimeEditing.BackColor = System.Drawing.Color.White;
             }
         }
+
         /// <summary>
         /// Обработка поля Категория(обязательное поле) 
         /// </summary>
@@ -285,14 +311,15 @@ namespace Science_Conferences
             if (string.IsNullOrWhiteSpace(comboBoxCategoryEditing.Text))
             {
                 comboBoxCategoryEditing.Focus();
-                comboBoxCategoryEditing.BackColor = Color.Red;
+                comboBoxCategoryEditing.BackColor = System.Drawing.Color.Red;
                 e.Cancel = true;
             }
             else
             {
-                comboBoxCategoryEditing.BackColor = Color.White;
+                comboBoxCategoryEditing.BackColor = System.Drawing.Color.White;
             }
         }
+
         /// <summary>
         /// Обработка поля Дата(обязательное поле, нельзя поставить дату раньше сегодняшней)
         /// </summary>
@@ -303,19 +330,29 @@ namespace Science_Conferences
                 MessageBox.Show("Неккоректный ввод даты: прошедшую дату поставить нельзя", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dateTimePickerEditing.Focus();
-                comboBoxCategoryEditing.BackColor = Color.Red;
+                comboBoxCategoryEditing.BackColor = System.Drawing.Color.Red;
                 e.Cancel = true;
             }
             else
             {
-                dateTimePickerEditing.BackColor = Color.White;
+                dateTimePickerEditing.BackColor = System.Drawing.Color.White;
             }
         }
-        #endregion
 
         #endregion
+        #region Генерация отчета
+        
+        
+
+
+        #endregion
+        #endregion
 
 
 
+
+
+
+        
     }
 }

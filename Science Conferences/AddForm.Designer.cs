@@ -87,7 +87,7 @@
             comboBoxCategoryAdding.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategoryAdding.FormattingEnabled = true;
             comboBoxCategoryAdding.ImeMode = ImeMode.NoControl;
-            comboBoxCategoryAdding.Items.AddRange(new object[] { "Физика", "Химия", "Биология", "Астрология", "Математика" });
+            comboBoxCategoryAdding.Items.AddRange(new object[] { "Физика", "Химия", "Биология", "Астрология", "Математика", "Без категории" });
             comboBoxCategoryAdding.Location = new Point(150, 366);
             comboBoxCategoryAdding.Name = "comboBoxCategoryAdding";
             comboBoxCategoryAdding.Size = new Size(481, 21);
@@ -113,6 +113,7 @@
             // 
             SaveButtonAdding.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             SaveButtonAdding.BackColor = Color.CornflowerBlue;
+            SaveButtonAdding.Enabled = false;
             SaveButtonAdding.FlatStyle = FlatStyle.Popup;
             SaveButtonAdding.ForeColor = SystemColors.ControlLightLight;
             SaveButtonAdding.Location = new Point(370, 579);
@@ -166,33 +167,33 @@
             participantsLabelAdding.AutoSize = true;
             participantsLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             participantsLabelAdding.ForeColor = Color.MidnightBlue;
-            participantsLabelAdding.Location = new Point(29, 405);
+            participantsLabelAdding.Location = new Point(29, 404);
             participantsLabelAdding.Name = "participantsLabelAdding";
-            participantsLabelAdding.Size = new Size(113, 30);
+            participantsLabelAdding.Size = new Size(118, 30);
             participantsLabelAdding.TabIndex = 7;
-            participantsLabelAdding.Text = "Участники";
+            participantsLabelAdding.Text = "Участники:";
             // 
             // categorylabelAdding
             // 
             categorylabelAdding.AutoSize = true;
             categorylabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             categorylabelAdding.ForeColor = Color.MidnightBlue;
-            categorylabelAdding.Location = new Point(25, 356);
+            categorylabelAdding.Location = new Point(29, 356);
             categorylabelAdding.Name = "categorylabelAdding";
-            categorylabelAdding.Size = new Size(111, 30);
+            categorylabelAdding.Size = new Size(116, 30);
             categorylabelAdding.TabIndex = 4;
-            categorylabelAdding.Text = "Категория";
+            categorylabelAdding.Text = "Категория:";
             // 
             // timeLabelAdding
             // 
             timeLabelAdding.AutoSize = true;
             timeLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             timeLabelAdding.ForeColor = Color.MidnightBlue;
-            timeLabelAdding.Location = new Point(25, 308);
+            timeLabelAdding.Location = new Point(29, 308);
             timeLabelAdding.Name = "timeLabelAdding";
-            timeLabelAdding.Size = new Size(74, 30);
+            timeLabelAdding.Size = new Size(79, 30);
             timeLabelAdding.TabIndex = 3;
-            timeLabelAdding.Text = "Время";
+            timeLabelAdding.Text = "Время:";
             // 
             // dateLabelAdding
             // 
@@ -201,31 +202,31 @@
             dateLabelAdding.ForeColor = Color.MidnightBlue;
             dateLabelAdding.Location = new Point(29, 259);
             dateLabelAdding.Name = "dateLabelAdding";
-            dateLabelAdding.Size = new Size(59, 30);
+            dateLabelAdding.Size = new Size(64, 30);
             dateLabelAdding.TabIndex = 2;
-            dateLabelAdding.Text = "Дата";
+            dateLabelAdding.Text = "Дата:";
             // 
             // decriptionLabelAdding
             // 
             decriptionLabelAdding.AutoSize = true;
             decriptionLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             decriptionLabelAdding.ForeColor = Color.MidnightBlue;
-            decriptionLabelAdding.Location = new Point(25, 115);
+            decriptionLabelAdding.Location = new Point(29, 115);
             decriptionLabelAdding.Name = "decriptionLabelAdding";
-            decriptionLabelAdding.Size = new Size(109, 30);
+            decriptionLabelAdding.Size = new Size(114, 30);
             decriptionLabelAdding.TabIndex = 1;
-            decriptionLabelAdding.Text = "Описание";
+            decriptionLabelAdding.Text = "Описание:";
             // 
             // titleLabelAdding
             // 
             titleLabelAdding.AutoSize = true;
             titleLabelAdding.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
             titleLabelAdding.ForeColor = Color.MidnightBlue;
-            titleLabelAdding.Location = new Point(25, 34);
+            titleLabelAdding.Location = new Point(29, 34);
             titleLabelAdding.Name = "titleLabelAdding";
-            titleLabelAdding.Size = new Size(105, 30);
+            titleLabelAdding.Size = new Size(110, 30);
             titleLabelAdding.TabIndex = 0;
-            titleLabelAdding.Text = "Название";
+            titleLabelAdding.Text = "Название:";
             // 
             // AddForm
             // 

@@ -18,33 +18,41 @@ namespace Science_Conferences
             InitializeComponent();
             this.mainForm = mainForm;
         }
+        
         /// <summary>
         /// Событие при клике на кнопку сохранить
         /// </summary>
         private void SaveButtonAdding_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var newConference = new Conference
+            //if (SaveButtonIsEnable(marks))
+            
+                try
                 {
-                    Title = textBoxTitleAdding.Text,
-                    Description = textBoxDescriptionAdding.Text,
-                    Date = dateTimePickerAdding.Value,
-                    Time = mainForm.GetTimeSpanFromTextBox(maskedTextBoxTimeAdding),
-                    Category = comboBoxCategoryAdding.Text,
-                    Participants = textBoxParticipantsAdding.Text
-                };
+                    var newConference = new Conference
+                    {
+                        Title = textBoxTitleAdding.Text,
+                        Description = textBoxDescriptionAdding.Text,
+                        Date = dateTimePickerAdding.Value,
+                        Time = mainForm.GetTimeSpanFromTextBox(maskedTextBoxTimeAdding),
+                        Category = comboBoxCategoryAdding.Text,
+                        Participants = textBoxParticipantsAdding.Text
+                    };
 
-                mainForm.AddConference(newConference);
-                MessageBox.Show("Конференция добавлена", "Оповещение", MessageBoxButtons.OK);
-                Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //Константы в файлы ресурсов
-            }
+                    mainForm.AddConference(newConference);
+                    MessageBox.Show("Конференция добавлена", "Оповещение", MessageBoxButtons.OK);
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //Константы в файлы ресурсов
+                }
+            
+            //else
+            //{
+            //    MessageBox.Show("Конференция добавлена", "Оповещение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
         /// <summary>
         /// Событие при клике на кнопку отмена
@@ -52,6 +60,7 @@ namespace Science_Conferences
         private void CancelButtonAdding_Click(object sender, EventArgs e) => Close();
 
         #region Обработка
+        
         /// <summary>
         /// Обработка поля Название(обязательное поле)
         /// </summary>
@@ -74,6 +83,12 @@ namespace Science_Conferences
         private void maskedTextBoxTimeAdding_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string pattern = @"^(?:[01]?[0-9]|2[0-3]):[0-5][0-9](?::[0-5][0-9])?$";
+            if (maskedTextBoxTimeAdding.Text.Replace(":", "").Trim('_').Length == 0)
+            {
+                maskedTextBoxTimeAdding.Focus();
+                maskedTextBoxTimeAdding.BackColor = Color.Red;
+                e.Cancel = true;
+            }
             if (!Regex.IsMatch(maskedTextBoxTimeAdding.Text, pattern))
             {
                 MessageBox.Show("Введите корректное время в формате ЧЧ:мм", "Ошибка",

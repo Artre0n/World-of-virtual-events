@@ -100,7 +100,7 @@
             listBoxOfConferences.BorderStyle = BorderStyle.FixedSingle;
             listBoxOfConferences.FormattingEnabled = true;
             listBoxOfConferences.ItemHeight = 15;
-            listBoxOfConferences.Location = new Point(11, 108);
+            listBoxOfConferences.Location = new Point(11, 109);
             listBoxOfConferences.Margin = new Padding(4, 2, 4, 2);
             listBoxOfConferences.Name = "listBoxOfConferences";
             listBoxOfConferences.Size = new Size(320, 497);
@@ -128,7 +128,7 @@
             ChangeButtonEditing.BackColor = Color.CornflowerBlue;
             ChangeButtonEditing.FlatStyle = FlatStyle.Popup;
             ChangeButtonEditing.ForeColor = SystemColors.ControlLightLight;
-            ChangeButtonEditing.Location = new Point(352, 606);
+            ChangeButtonEditing.Location = new Point(330, 606);
             ChangeButtonEditing.Margin = new Padding(4, 3, 4, 3);
             ChangeButtonEditing.Name = "ChangeButtonEditing";
             ChangeButtonEditing.Size = new Size(156, 38);
@@ -183,18 +183,20 @@
             groupBoxEditing.Font = new Font("Microsoft Sans Serif", 8.25F);
             groupBoxEditing.Location = new Point(408, 65);
             groupBoxEditing.Name = "groupBoxEditing";
-            groupBoxEditing.Size = new Size(679, 650);
+            groupBoxEditing.Size = new Size(657, 650);
             groupBoxEditing.TabIndex = 11;
             groupBoxEditing.TabStop = false;
             groupBoxEditing.Visible = false;
             // 
             // maskedTextBoxTimeEditing
             // 
+            maskedTextBoxTimeEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            maskedTextBoxTimeEditing.BackColor = Color.White;
             maskedTextBoxTimeEditing.BorderStyle = BorderStyle.FixedSingle;
             maskedTextBoxTimeEditing.Location = new Point(150, 304);
             maskedTextBoxTimeEditing.Mask = "00:00";
             maskedTextBoxTimeEditing.Name = "maskedTextBoxTimeEditing";
-            maskedTextBoxTimeEditing.Size = new Size(463, 20);
+            maskedTextBoxTimeEditing.Size = new Size(441, 20);
             maskedTextBoxTimeEditing.TabIndex = 21;
             maskedTextBoxTimeEditing.ValidatingType = typeof(DateTime);
             maskedTextBoxTimeEditing.Validating += maskedTextBoxTimeEditing_Validating;
@@ -204,11 +206,10 @@
             comboBoxCategoryEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             comboBoxCategoryEditing.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategoryEditing.FormattingEnabled = true;
-            comboBoxCategoryEditing.ImeMode = ImeMode.NoControl;
-            comboBoxCategoryEditing.Items.AddRange(new object[] { "Физика", "Химия", "Биология", "Астрология", "Математика" });
+            comboBoxCategoryEditing.Items.AddRange(new object[] { "Физика", "Химия", "Биология", "Астрология", "Математика", "Без категории" });
             comboBoxCategoryEditing.Location = new Point(150, 351);
             comboBoxCategoryEditing.Name = "comboBoxCategoryEditing";
-            comboBoxCategoryEditing.Size = new Size(463, 21);
+            comboBoxCategoryEditing.Size = new Size(441, 21);
             comboBoxCategoryEditing.TabIndex = 20;
             comboBoxCategoryEditing.Validating += comboBoxCategoryEditing_Validating;
             // 
@@ -218,7 +219,7 @@
             dateTimePickerEditing.Location = new Point(150, 252);
             dateTimePickerEditing.Margin = new Padding(3, 2, 3, 2);
             dateTimePickerEditing.Name = "dateTimePickerEditing";
-            dateTimePickerEditing.Size = new Size(463, 20);
+            dateTimePickerEditing.Size = new Size(441, 20);
             dateTimePickerEditing.TabIndex = 13;
             dateTimePickerEditing.Validating += dateTimePickerEditing_Validating;
             // 
@@ -229,7 +230,7 @@
             CancelButtonEditing.BackgroundImageLayout = ImageLayout.None;
             CancelButtonEditing.FlatStyle = FlatStyle.Popup;
             CancelButtonEditing.ForeColor = SystemColors.ControlLightLight;
-            CancelButtonEditing.Location = new Point(516, 606);
+            CancelButtonEditing.Location = new Point(494, 606);
             CancelButtonEditing.Margin = new Padding(4, 3, 4, 3);
             CancelButtonEditing.Name = "CancelButtonEditing";
             CancelButtonEditing.Size = new Size(156, 38);
@@ -241,30 +242,35 @@
             // textBoxParticipantsEditing
             // 
             textBoxParticipantsEditing.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxParticipantsEditing.BorderStyle = BorderStyle.FixedSingle;
             textBoxParticipantsEditing.Location = new Point(150, 405);
             textBoxParticipantsEditing.MaxLength = 531;
             textBoxParticipantsEditing.Multiline = true;
             textBoxParticipantsEditing.Name = "textBoxParticipantsEditing";
-            textBoxParticipantsEditing.Size = new Size(463, 127);
+            textBoxParticipantsEditing.Size = new Size(441, 127);
             textBoxParticipantsEditing.TabIndex = 15;
             // 
             // textBoxDescriptionEditing
             // 
             textBoxDescriptionEditing.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBoxDescriptionEditing.BackColor = Color.White;
+            textBoxDescriptionEditing.BorderStyle = BorderStyle.FixedSingle;
             textBoxDescriptionEditing.Location = new Point(150, 100);
             textBoxDescriptionEditing.MaxLength = 472;
             textBoxDescriptionEditing.Multiline = true;
             textBoxDescriptionEditing.Name = "textBoxDescriptionEditing";
-            textBoxDescriptionEditing.Size = new Size(463, 119);
+            textBoxDescriptionEditing.Size = new Size(441, 119);
             textBoxDescriptionEditing.TabIndex = 9;
             // 
             // textBoxTitleEditing
             // 
             textBoxTitleEditing.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxTitleEditing.BackColor = Color.White;
+            textBoxTitleEditing.BorderStyle = BorderStyle.FixedSingle;
             textBoxTitleEditing.Location = new Point(150, 44);
             textBoxTitleEditing.MaxLength = 78;
             textBoxTitleEditing.Name = "textBoxTitleEditing";
-            textBoxTitleEditing.Size = new Size(463, 20);
+            textBoxTitleEditing.Size = new Size(441, 20);
             textBoxTitleEditing.TabIndex = 8;
             textBoxTitleEditing.Validating += textBoxTitleEditing_Validating;
             // 
@@ -276,9 +282,9 @@
             participantsLabelEditing.ForeColor = Color.MidnightBlue;
             participantsLabelEditing.Location = new Point(29, 395);
             participantsLabelEditing.Name = "participantsLabelEditing";
-            participantsLabelEditing.Size = new Size(124, 30);
+            participantsLabelEditing.Size = new Size(118, 30);
             participantsLabelEditing.TabIndex = 7;
-            participantsLabelEditing.Text = "Участники :";
+            participantsLabelEditing.Text = "Участники:";
             // 
             // CategoryLabelEditing
             // 
@@ -288,9 +294,9 @@
             CategoryLabelEditing.ForeColor = Color.MidnightBlue;
             CategoryLabelEditing.Location = new Point(29, 342);
             CategoryLabelEditing.Name = "CategoryLabelEditing";
-            CategoryLabelEditing.Size = new Size(122, 30);
+            CategoryLabelEditing.Size = new Size(116, 30);
             CategoryLabelEditing.TabIndex = 4;
-            CategoryLabelEditing.Text = "Категория :";
+            CategoryLabelEditing.Text = "Категория:";
             // 
             // timeLabelEditing
             // 
@@ -300,9 +306,9 @@
             timeLabelEditing.ForeColor = Color.MidnightBlue;
             timeLabelEditing.Location = new Point(29, 294);
             timeLabelEditing.Name = "timeLabelEditing";
-            timeLabelEditing.Size = new Size(85, 30);
+            timeLabelEditing.Size = new Size(79, 30);
             timeLabelEditing.TabIndex = 3;
-            timeLabelEditing.Text = "Время :";
+            timeLabelEditing.Text = "Время:";
             // 
             // dateLabelEditing
             // 
@@ -312,9 +318,9 @@
             dateLabelEditing.ForeColor = Color.MidnightBlue;
             dateLabelEditing.Location = new Point(29, 245);
             dateLabelEditing.Name = "dateLabelEditing";
-            dateLabelEditing.Size = new Size(70, 30);
+            dateLabelEditing.Size = new Size(64, 30);
             dateLabelEditing.TabIndex = 2;
-            dateLabelEditing.Text = "Дата :";
+            dateLabelEditing.Text = "Дата:";
             // 
             // describtionLabelEditing
             // 
@@ -324,9 +330,9 @@
             describtionLabelEditing.ForeColor = Color.MidnightBlue;
             describtionLabelEditing.Location = new Point(29, 90);
             describtionLabelEditing.Name = "describtionLabelEditing";
-            describtionLabelEditing.Size = new Size(120, 30);
+            describtionLabelEditing.Size = new Size(114, 30);
             describtionLabelEditing.TabIndex = 1;
-            describtionLabelEditing.Text = "Описание :";
+            describtionLabelEditing.Text = "Описание:";
             // 
             // titleLabelEditing
             // 
@@ -336,9 +342,9 @@
             titleLabelEditing.ForeColor = Color.MidnightBlue;
             titleLabelEditing.Location = new Point(29, 34);
             titleLabelEditing.Name = "titleLabelEditing";
-            titleLabelEditing.Size = new Size(116, 30);
+            titleLabelEditing.Size = new Size(110, 30);
             titleLabelEditing.TabIndex = 0;
-            titleLabelEditing.Text = "Название :";
+            titleLabelEditing.Text = "Название:";
             // 
             // panel1
             // 
@@ -379,7 +385,7 @@
             panel3.Controls.Add(label1);
             panel3.Location = new Point(408, 39);
             panel3.Name = "panel3";
-            panel3.Size = new Size(679, 35);
+            panel3.Size = new Size(657, 35);
             panel3.TabIndex = 15;
             // 
             // label1
@@ -412,13 +418,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1084, 741);
+            Controls.Add(DeleteButton);
             Controls.Add(panel3);
             Controls.Add(comboBoxSort);
             Controls.Add(panel1);
             Controls.Add(SearchBar);
             Controls.Add(EditButton);
             Controls.Add(listBoxOfConferences);
-            Controls.Add(DeleteButton);
             Controls.Add(AddButton);
             Controls.Add(panel2);
             Controls.Add(IconSearch);
