@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Science Conferences", "Science Conferences\Science Conferences.csproj", "{C28650B3-4169-4117-B4F0-43FFEDA15C03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Science Conferences.Tests", "Science Conferences.Tests\Science Conferences.Tests.csproj", "{57BCC661-B6A5-4A22-9D69-0E2EE3F41F5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{C28650B3-4169-4117-B4F0-43FFEDA15C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C28650B3-4169-4117-B4F0-43FFEDA15C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C28650B3-4169-4117-B4F0-43FFEDA15C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57BCC661-B6A5-4A22-9D69-0E2EE3F41F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BCC661-B6A5-4A22-9D69-0E2EE3F41F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57BCC661-B6A5-4A22-9D69-0E2EE3F41F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57BCC661-B6A5-4A22-9D69-0E2EE3F41F5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF90B630-BF07-41D0-8007-1CC0331CE15E}
 	EndGlobalSection
 EndGlobal
