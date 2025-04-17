@@ -32,7 +32,7 @@ namespace Science_Conferences
         /// </summary>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=conferences;Username=postgres;Password=lazycat08");
+            optionsBuilder.UseNpgsql("Host=localhost;Database=conferences;Username=postgres;Password=4286");
         }
     }
 }
